@@ -1,0 +1,50 @@
+<!DOCTYPE html> <html> <head> </head> <body><H1>HEADER
+</H1><p> <a href="javascript:myFunction('Div1')">Section 1 Header
+</a> <div id="Div1" style="margin-left:10%;"><pre><code>Section 1 Details
+SecSection 1 Details
+tion 1 Details
+SecSection 1 Details
+tion 1 Details
+Section 1Section 1 Details
+ Details
+Section 1 DeSection 1 Details
+Section 1 Dection 1 Dection 1 Dection 1 Dection 1 Details
+tails
+Section 1 Details
+</code> </pre> </div> </p>
+<p> <a href="javascript:myFunction('Div2')">Section 2 Header
+</a> <div id="Div2" style="margin-left:10%;"><pre><code>Section 2 Details 
+1
+2
+3
+4
+5
+</code> </pre> </div> </p>
+<p> <a href="javascript:myFunction('Div3')">Section 3 Header
+</a> <div id="Div3" style="margin-left:10%;"><pre><code>333333333333333333333333333333333333333
+33333333333333333
+333333
+333333333333333333333333333333333333333333333333333333333
+333333333333333333333
+333333333
+</code> </pre> </div> </p>
+<p> <a href="javascript:myFunction('Div4')">Section 4 Header
+</a> <div id="Div4" style="margin-left:10%;"><pre><code>444444444444444444444444444444
+4444444444</code> </pre> </div> </p>
+<br /><br /><br /><script>
+function myFunction(divid) {
+  var x = document.getElementById(divid);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+var i;
+var str;
+
+for (i=1; i<5; i++) {
+    str = "Div" + i.toString();
+    myFunction(str);
+}
+</script></body> </html>
