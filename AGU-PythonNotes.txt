@@ -1,0 +1,698 @@
+⚠️Python 3 Notes
+
+
+#---Copyright (C) Exforge exforge@karasite.com
+# This document is free text: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# This document is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+#--- ⚠️Boolean expressions
+x == y
+x != y
+x >= y
+x <= y
+x > y
+x < y
+not (x > y)
+n%2 == 0 or n%3 == 0	# n is divisible by 2 or 3
+
+
+#--- ⚠️Unary operators
+p = 14
+p += 1
+p -= 1
+p *= 3
+p /= 2
+p **= 3
+p //= 7
+p %= 11
+
+
+#--- ⚠️Bitwise operators
+i1 = 37
+i2 = 43
+i = i1 & i2         # bitwise and
+i = i1 | i2         # bitwise or
+i = i1 ^ i2         # bitwise xor
+i = ~i1             # bitwise complement (invert)
+i = i1<<1           # bitwise binary left shift
+i = i1>>1           # bitwise binary right shift
+i &= 24
+i <<= 3
+i >>= 2
+i ^= 128
+i |= 231
+
+
+#--- ⚠️Type Conversions
+x = int(3.5)
+x = int("23")
+y = float(5)
+y = float("14")
+s = str(18)
+s = str(3.5)
+c = chr(x)          # Convert an integer to a string (0-255)
+c = complex(1)      # 1 + 0j
+c = complex(3, 4)   # 3 + 4j
+o = ord("a")        # returns unicode integer of the character
+h = hex(78)         # returns hex equivalent of an integer as a string
+o = oct(88)         # returns octal equivalent of an integer as a string
+t1 = type(h)        # returns the type of the variable (or value)
+
+
+#--- ⚠️if Construction
+if x < 0:
+    pass
+elif x > 100:
+    print("More than 100")
+else:
+    print("Between")
+# switch like if
+if 1 <= day_number <= 5:
+    day = 'Weekday'
+elif day_number == 6:
+    day = 'Saturday'
+elif day_number == 0:
+    day = 'Sunday'
+
+
+#--- ⚠️while Construction
+while n > 0:
+    print(n)
+    n = n - 1
+print("Finished")
+# While with break
+while True:
+    line = input('> ')
+    if line == 'done':
+        break
+    print(line)
+print('Done!')
+
+
+#--- ⚠️Recursion
+def countdown(n):
+    if n <= 0:
+        print('Finito')
+    else:
+        print(n, end = " ")
+        countdown(n-1)
+
+
+#--- ⚠️Input
+name = input("Your name please: ")
+# Type check
+if not isinstance(n, int):
+	print('Only integers.')
+
+
+#--- ⚠️Functions
+def func_name(input)
+    return input * 2
+# Positional arguments
+def func(a, b=2, c=3):
+    print(a, b, c)
+func(1)                 # prints: 1 2 3
+func(b=5, a=7, c=9)     # prints: 7 5 9
+func(42, c=9)           # prints: 42 2 9
+func(42, 43, 44)        # prints: 42, 43, 44
+# Variable positional arguments
+def minimum(*n):
+    if n:       # if not empty
+        mn = n[0]
+        for value in n[1:]:
+            if value < mn:
+                mn = value
+        print(mn)
+
+
+
+#--- ⚠️Strings
+fruit = "karpuz"
+first = fruit[0]
+last = fruit[len(fruit)-1]     #Or fruit[-1]
+#  traverse a string
+for letter in fruit:
+    print(letter, end=" ")
+print()
+# Multi line strings
+str1 = """Multi
+line 
+string"""
+str2 = "Another\nmultiline\nstring"
+#  indices
+t[0:5]		# from 0 to 4 
+t[10:18]	# from 10 to 17
+t[:10]		# from beginning to 9
+t[20:]		# from 20 to end
+#  string functions
+t.lower()	# returns lowercase
+t.upper()	# returns uppercase
+t.strip()	# remove beginning and ending spaces
+len(t)		# length
+# raw string
+raw_string = r"\lalalala'\n\r\'"
+print(raw_string)
+# unicode string
+unicode_string = u'A unicode \u018e \u019e string \xf1'
+# String addition and multiplication
+first = "gelecek"
+second = " misin"
+print (first + second)
+print(first * 3 + second * 2)
+
+
+
+#--- ⚠️String Formatting
+# 1
+str3 = "Hello {}, {}, and {}"
+print(str3.format("Ali", "Ayşe", "Fatma"))
+# 2
+str4 = "This is {0}. {1} hates {0}"
+print(str4.format("Hasan", "Hüseyin"))
+# 4
+str5 = "I am {name}, I am {age} years old."
+print(str5.format(name = "Nuri", age = 51))
+# 5 Since Python 3.6
+name = "Exforge"
+age = 51
+str6 = f"My name is {name} and I am {age} years old."
+pi = math.pi
+width = 8
+precision = 4
+print(f"pi: {pi}")                      # pi: 3.141592653589793
+print(f"pi: {pi:{width}}")              # pi: 3.141592653589793
+print(f"pi: {pi:.{precision}}")         # pi: 3.142
+print(f"pi: {pi:{width}.{precision}}")  # pi:    3.142
+# format using string formatter
+my_str = "Testing with 1 parameter {}"
+print(my_str.format("item1"))
+my_str = "Testing with 3 parameters {} {} {}"
+print(my_str.format("item1", "item2", "item3"))
+
+
+
+#--- ⚠️Complex Numbers
+c1 = 1 + 1j
+c2 = 1 - 2j
+c3 = complex()
+print(c1)
+print(c1.real, c1.imag)
+print(c1.conjugate())
+print("c1 + c2:", c1 + c2)
+print("c1 - c2:", c1 - c2)
+print("c1 * c2:", c1 * c2)
+print("c1 / c2:", c1 / c2)
+print("c1**2:", c1**2)
+print("c2**0.5:", c2**0.5)
+print("c1**c2:", c1**c2)
+
+
+#--- ⚠️Fractions
+from fractions import Fraction
+f1 = Fraction(2,6)
+f2 = Fraction(3,7)
+print(f1, f2)
+print(f1.numerator, f1.denominator)
+print("f1 + f2", f1 + f2)
+print("f1**2:", f1**2, "f2**0.5", f2**0.5)
+
+
+#--- ⚠️Decimal
+from decimal import Decimal as D
+print(D(3.14), D("3.14"))
+d = D()
+d = D("0.1") * D(3) - D("0.3")
+print(d)
+
+
+#--- ⚠️Lists
+#  assignment
+cheeses = ['Cheddar', 'Edam', 'Gouda']
+numbers = [42, 123]
+empty = []
+numbers[1] = 5		# Lists are mutable
+l = list()		# Empty
+l = []
+l = [x**2 for x in [0, 1, 2, 3, 4, 5]]
+l = [x*x for x in range(6)]
+l = list("hello")
+l = list(t2)       # From tuple
+#
+#  Traversing
+for cheese in cheeses:
+    print(cheese)
+for i in range(len(numbers)):
+    numbers[i] = numbers[i] * 2
+#
+#  Operations
+a = [1, 2, 3]
+b = [4, 5, 6]
+c = a + b
+d = [0] * 4    		# [0, 0, 0, 0]
+#
+#  List slices
+t = ['a', 'b', 'c', 'd', 'e', 'f']
+t[1:3]   		# ['b', 'c']
+t[:4]			# ['a', 'b', 'c', 'd']
+t[3:] 			# ['d', 'e', 'f']
+t[:]			# ['a', 'b', 'c', 'd', 'e', 'f']
+t[1:3] = ['x', 'y']
+#
+#  List methods
+l1 = ['a', 'b', 'c']
+l2 = ['d', 'e']
+l1.append('ç')
+l1.extend(t2)
+l1.sort()
+sum(t)
+x = l6.count(1)     # Number of 1s
+x = l6.index(3)     # position of 2
+l6.insert(3, 17)    # insert 17 at position 3
+x = l6.pop()        # return and remove the last element
+x = l6.pop(4)       # return and remove the element at position 4
+l6.remove(17)       # remove 17 from the list
+l6.reverse()        # reverse the order of the elements in the list
+l4.sort()           # sort the list
+l6.clear            # remove all elemnts from the list
+l4.len()	    # number of items in the list
+l4.any()	    # returns true if any of the items in the list is true
+l4.all()	    # returns true if all the items in the list is true
+# sort list with multiple items
+from operator import itemgetter
+l1 = [(5, 3), (1, 3), (1, 2), (2, -1), (4, 9)]   # a list of tuples
+# Sort on first item, then second item (default)
+l2 = sorted(l1)
+# Sort on first item only
+l3 = sorted(l1, key=itemgetter(0))
+# Sort on first item, then second item 
+l4 = sorted(l1, key=itemgetter(0, 1))
+# Sort on second item
+l5 = sorted(l1, key=itemgetter(1))
+# Reverse sort on second item
+l6 = sorted(l1, key=itemgetter(1), reverse = True)
+#
+#  Deleting from a list
+t = ['a', 'b', 'c', 'd', 'e', 'f']
+x = t.pop(1)
+del t[1]
+t.remove('b')
+del t[1:5]
+#
+#  String to list
+s = 'spam'
+t = list(s)		# t = ["s", "p", "a", "m"]
+s = 'pining for the fjords'
+t = s.split()		# t = ['pining', 'for', 'the', 'fjords']
+s = 'spam-spam-spam'
+delimiter = '-'
+t = s.split(delimiter)	# t = ['spam', 'spam', 'spam']
+
+
+#--- ⚠️Dictionaries
+#  assignment
+eng2sp['one'] = 'uno'
+eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+eng2sp = dict()		# empty
+d1 = dict(A=1, Z=-1)
+d2 = {"A":1, "Z":-1}
+d3 = dict(zip(["A", "Z"], [1, -1]))
+d4 = dict([("A", 1), ("Z", -1)])
+d5 = dict({"Z": -1, "A": 1})
+#  traversing
+for key in h:
+    print(key, h[key])
+#  subtracting a dictionary from other d1 - d2
+def subtract(d1, d2):
+    res = dict()
+    for key in d1:
+        if key not in d2:
+            res[key] = None
+    return res
+# set operations
+print(d.keys())
+print(d.values())
+print(d.items())
+d.pop("l")              # removes l item
+d.update(e=7)
+print(d)
+print(d.get("h"))
+print(d.get("z", 75))   # if no value then return 75
+d.setdefault('a', 1)    # if a in dict do nothing, else put a as key and 1 as value
+d['age'] = d.get('age', 0) + 1  # if exist increase value by one, else set 1
+del d2["A"]
+
+
+#--- ⚠️Tuples
+#   Like lists but immutable
+#  Assignment
+t1 = 'b', 'c', 'd', 'e'
+t1 = ("a",) + t1
+t = ('a', 'b', 'c', 'd', 'e')
+t1 = 'a',			# Beware of the comma ,
+t = tuple()			# Empty
+t = tuple('lupins')		# ("l", "u", "p", "i", "n", "s")
+a, b = b, a			# swap
+#
+#  Slicing is the same as lists
+t[1:3]
+#
+#  Functions returning tuple
+#   divmod(x, y)  x/y returns a tuple of quot and rem
+t = divmod(11,3)
+quot, rem = divmod(7, 3)	# alternative without tuple
+#   A function returning a tuple
+def min_max(t):
+    return min(t), max(t)
+#   A function with tuple argument
+def printall(*args):
+    print(args)
+# swap using tuple
+a, b = b, a
+
+
+#--- ⚠️Byte Arrays
+b1 = bytearray()                    # Empty
+b2 = bytearray(10)                  # 10 zeros
+b3 = bytearray(b"Lina")             # From string
+print(f"b1: {b1}")
+print(f"b2: {b2}")
+print(f"b3: {b3}")
+b3 = b3.replace(b"L", b"l")
+if b3.endswith(b"na"):
+    print(f"b3: {b3} ends with na") 
+b3 = b3.upper()
+print(f"b3: {b3}")
+
+
+#--- ⚠️Sets
+s1 = {"a", "b", "b", "c"}
+print(s1)
+sp = set()                  # small primes
+sp.add(2)
+sp.add(3)
+sp.add(5)
+print(sp)
+sp.add(1)
+sp.remove(1)
+if 3 in sp:
+    print("Yes 3 is in small primes")
+bp = set([5, 7, 11, 13])    # bigger primes
+sun = sp | bp               # union
+sint = sp & bp              # intersection
+print(sun)
+print(sint)
+# frozenset - immutable, for better performance
+fsp = frozenset([2, 3, 5])  
+print(fsp)
+
+
+
+#--- ⚠️File manipulation
+# File manipulation in text mode
+# Read input file
+with open('fear.txt') as fr:
+    lines = [line.rstrip() for line in fr]
+# Remove empty lines
+lines = [line for line in lines if line != ""]
+# Write to output file
+with open('fear_copy.txt', 'w') as fw:
+    fw.write('\n'.join(lines))
+# Read and write
+with open("egypt.txt") as in_file, open("egypt2.txt", "w") as out_file:
+    for line in in_file:
+        out_file.write(line.upper())
+# File manipulation in binary mode
+with open('example.bin', 'wb') as fw:
+    fw.write(b'This is binary data...')
+    b = bytearray(200)
+    for i in range(200):
+        b[i] = i + 20 
+    fw.write(b)
+with open('example.bin', 'rb') as f:
+    print(f.read()) 
+#  File databases
+import dbm
+db = dbm.open("dbengsp", "c")
+#	'r'    read only (default)
+#	"w"    read write
+#	"c"    read/write, create if doesnot exist
+#	"n"    read/write, always create new
+db["four"] = "cuatro"
+db["five"] = "cinco"
+db["six"] = "seis"
+db.close
+#   Traverse a file database
+for key in db.keys():
+    print(key, db[key])
+
+
+#--- ⚠️Pickle
+#  Convert any data type to string to store it
+#  Then revert it back to original type
+import pickle
+l1 = [0, 1, 2, 3]
+t1 = (0, 1, 2, 3)
+d1 = {"a" : 3, "b" : 5, "c" : 0}
+#  Convert
+sl1 = pickle.dumps(l1)
+st1 = pickle.dumps(t1)
+sd1 = pickle.dumps(d1)
+#  Revert
+l2 = pickle.loads(sl1)
+t2 = pickle.loads(st1)
+d2 = pickle.loads(sd1)
+
+
+
+#--- ⚠️Simple Program Arguments
+from sys import argv
+script, first, second, third = argv
+print(f"Script {script} runs with the params {first}, {second}, {third}")
+
+
+
+#--- ⚠️Program Arguments Parsing
+import argparse
+# Start parser
+parser = argparse.ArgumentParser(description="Demo program", epilog="Long Desription")
+# Add 2 mutually exclusive options
+#  print date or time, but not both
+group = parser.add_mutually_exclusive_group()
+group.add_argument("-t", "--time", help = "Print time",
+        action="store_true")
+group.add_argument("-d", "--day", help = "Print date",
+        action="store_true")
+# Positional argument
+parser.add_argument("echo", help = "Echo the string")
+# Positional argument, type int
+parser.add_argument("square", help="display a square of a given number", type=int)
+# Optional argument, option only
+parser.add_argument("-v", "--verbose", help="increase output verbosity",
+        action="store_true")
+# Optional argument including an int value, with a default value
+parser.add_argument("-n", "--number", type=int, default=1,
+                    help="number of times to display message")
+# Get parsed arguments
+args = parser.parse_args()
+# Use arguments
+if args.time:
+    print(hours)
+elif args.day:
+    print(days)
+numbers = args.number
+if args.verbose:
+    print("Verbose is on")
+print(args.echo)
+
+
+
+#--- ⚠️OS Commands
+import os
+#  if file exists
+if os.path.exists(ffile):
+    print("exists")
+#  get current dir
+cwd = os.getcwd()
+#  get contents of a dir
+files = os.listdir(cwd)
+#  check if an item is a file or dir
+if os.path.isdir(ffile):
+    print("directory.")
+elif os.path.isfile(ffile):
+    print("file.")
+# rename a file
+os.rename(source, dest)
+#
+#  OS Pipe
+print("OS Pipe")
+cmd = "ls -al ch*"
+fp = os.popen(cmd)
+res = fp.read()     		# readline reads line by line
+stat = fp.close()       	# None means no error
+print("Exec status:", stat)
+print("Command output:")
+print(res)
+
+
+#--- ⚠️Using your own library
+#  put your library in mylib.py file
+import mylib
+txt = "kilim"
+txtu = mylib.tr_upper(txt)
+txtl = mylib.tr_lower(txtu)
+
+
+
+#--- ⚠️Shortcuts
+# shortcut factorial
+def factorial(n):
+    return 1 if n == 0 else n * factorial(n-1)
+# return only uppers
+def only_upper(t):
+    return [s for s in t if s.isupper()]
+# if-else
+y = math.log(x) if x > 0 else float('nan')
+
+
+#--- ⚠️Random
+#  [0,1] float
+x = random.random()
+#  [a,b] integer
+x = random.randint(1, b)
+#  from a list
+t = list("abcçdefgğhıijklmnopqrsştuxvwyz")
+x = random.choice(t)
+
+
+
+#--- ⚠️Math Module
+import math
+#  Trig
+math.cos(radians) 
+math.sin(radians)
+math.tan(radians)
+#  Radians to degrees, vice verse
+math.degrees(radians)
+math.radians(degrees)
+# Constants
+math.pi
+math.e
+math.inf        # infinity
+-math.inf       # negative infinity
+# Logarithmics
+math.log(x, base)
+math.log(x)     # base = e
+math.log2(x)	
+math.log10(x)	# better than math.log(x, 10)
+# Misc
+math.fabs(x)   # absolute value
+math.sqrt(x)
+
+
+#--- ⚠️Tips
+# Floor division and modulus
+hours = total_minutes // 60
+minutes = total_minutes % 60
+# Very small numbers
+epsilon = 1e-15
+# Multi assignment
+x = y = 2
+a, b = 1, 2
+addr = 'monty@python.org'
+uname, domain = addr.split('@')
+# swap
+a, b = b, a
+# Print without LF
+print(x, end = " ")
+# Print formatted
+print("%2d    %2.7f  %2.7f  %2.12f " % (i, r1, r2, r3))
+
+
+
+#--- ⚠️Turtle Module
+import turtle
+myturtle = turtle.Turtle()
+# Move
+myturtle.forward(len)		# Length by pixel
+myturtle.fd(len)
+myturtle.backward(len)
+myturtle.back(len)
+myturtle.bk(len)
+# Turn
+myturtle.left(ang)		# Angle to turn
+myturtle.lt(ang)
+myturtle.right(ang)
+myturtle.rt(ang)
+# Click on exit
+turtle.exitonclick()		# Not myturtle
+# Draw and wait 
+turtle.mainloop()
+
+
+
+#--- ⚠️Class Magic Methods
+__new__(cls, other) 		To get called in an object's instantiation.
+__init__(self, other) 		To get called by the __new__ method.
+__del__(self) 			Destructor method.
+__pos__(self) 			To get called for unary positive e.g. +someobject.
+__neg__(self) 			To get called for unary negative e.g. -someobject.
+__abs__(self) 			To get called by built-in abs() function.
+__invert__(self) 		To get called for inversion using the ~ operator.
+__round__(self,n) 		To get called by built-in round() function.
+__floor__(self) 		To get called by built-in math.floor() function.
+__ceil__(self) 		To get called by built-in math.ceil() function.
+__trunc__(self) 		To get called by built-in math.trunc() function.
+__iadd__(self, other) 		To get called on addition with assignment e.g. a +=b.
+__isub__(self, other) 		To get called on subtraction with assignment e.g. a -=b.
+__imul__(self, other) 		To get called on multiplication with assignment e.g. a *=b.
+__ifloordiv__(self, other) 	To get called on integer division with assignment e.g. a //=b.
+__idiv__(self, other) 		To get called on division with assignment e.g. a /=b.
+__itruediv__(self, other) 	To get called on true division with assignment
+__imod__(self, other) 		To get called on modulo with assignment e.g. a%=b.
+__ipow__(self, other) 		To get called on exponentswith assignment e.g. a **=b.
+__ilshift__(self, other) 	To get called on left bitwise shift with assignment e.g. a<<=b.
+__irshift__(self, other) 	To get called on right bitwise shift with assignment e.g. a >>=b.
+__iand__(self, other) 		To get called on bitwise AND with assignment e.g. a&=b.
+__ior__(self, other) 		To get called on bitwise OR with assignment e.g. a|=b.
+__ixor__(self, other) 		To get called on bitwise XOR with assignment e.g. a ^=b.
+__int__(self) 			To get called by built-int int() method to convert a type to an int.
+__float__(self) 		To get called by built-int float() method to convert a type to float.
+__complex__(self) 		To get called by built-int complex() method to convert a type to complex.
+__oct__(self) 			To get called by built-int oct() method to convert a type to octal.
+__hex__(self) 			To get called by built-int hex() method to convert a type to hexadecimal.
+__index__(self) 		To get called on type conversion to an int when the object is used in a slice expression.
+__trunc__(self) 		To get called from math.trunc() method.
+__str__(self) 			To get called by built-int str() method to return a string representation of a type.
+__repr__(self) 		To get called by built-int repr() method to return a machine readable representation of a type.
+__unicode__(self) 		To get called by built-int unicode() method to return an unicode string of a type.
+__format__(self, formatstr) 	To get called by built-int string.format() method to return a new style of string.
+__hash__(self) 		To get called by built-int hash() method to return an integer.
+__nonzero__(self) 		To get called by built-int bool() method to return True or False.
+__dir__(self) 			To get called by built-int dir() method to return a list of attributes of a class.
+__sizeof__(self) 		To get called by built-int sys.getsizeof() method to return the size of an object.
+__getattr__(self, name) 	Is called when the accessing attribute of a class that does not exist.
+__setattr__(self, name, value) Is called when assigning a value to the attribute of a class.
+__delattr__(self, name) 	Is called when deleting an attribute of a class.
+__add__(self, other) 		To get called on add operation using + operator
+__sub__(self, other) 		To get called on subtraction operation using - operator.
+__mul__(self, other) 		To get called on multiplication operation using * operator.
+__floordiv__(self, other) 	To get called on floor division operation using // operator.
+__div__(self, other) 		To get called on division operation using / operator.
+__mod__(self, other) 		To get called on modulo operation using % operator.
+__pow__(self, other[, modulo]) To get called on calculating the power using ** operator.
+__lt__(self, other) 		To get called on comparison using < operator.
+__le__(self, other) 		To get called on comparison using <= operator.
+__eq__(self, other) 		To get called on comparison using == operator.
+__ne__(self, other) 		To get called on comparison using != operator.
+__ge__(self, other) 		To get called on comparison using >= operator.
+
+
