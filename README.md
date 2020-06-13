@@ -15,6 +15,6 @@ sample.txt is a sample input file for helptext2html.py program.
 sample.html is a sample output file for helptext2html.py program.
 
 
-AGU-PythonNotes.txt consist the note I took while learning Python. I use them as a reference. I'd be glad if it can help anyone else.
+AGU-PythonNotes.txt consist the notes I took while learning Python. I use them as a reference. I'd be glad if it can help anyone else.
 
 AGU-PythonCGI.txt consists of a simple tutorial on using Python for CGI programming on Ubuntu 20.04 and Apache Server.
