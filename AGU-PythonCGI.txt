@@ -1,0 +1,261 @@
+Python 3 CGI Programming
+
+#---Copyright (C) 2020 Exforge exforge@karasite.com
+# This document is free text: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# This document is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+#---Specs
+# Based on the tutorial at
+#    https://www.tutorialspoint.com/python/python_cgi_programming.htm
+# Python2 codes upgraded to Python3
+# Operating System: Ubuntu Server 20.04
+# HTTP Server: Apache2
+# Python Version: python3 (3.8 actually)
+# My Server: test1.karasite.com
+# Location on server: 
+#   html files: /var/www/test1.karasite.com
+#   cgi files:  /var/www/test1.karasite.com/cgi
+
+#---1. Enabling CGI for a site
+# 1.1. Enable cgi for Apache
+sudo a2enmod cgid
+sudo systemctl restart apache2
+# 1.2. Enable a cgi directory for the site
+# Add to the vhost site conf
+#_____________________________________________________________
+        ScriptAlias /bin/ "/var/www/test1.karasite.com/cgi/"
+        <Directory "/var/www/test1.karasite.com/cgi/">
+                Require all granted
+                Options +ExecCGI
+                AddHandler cgi-script .cgi
+        </Directory>
+#______________________________________________________________
+# 1.3. Restart Apache
+sudo systemctl reload apache2
+
+#---2. Simplest Cgi
+# 2.1. Prepare the cgi
+sudo nano /var/www/test1.karasite.com/cgi/simple.cgi
+# Remember to include the line #/usr/bin/env python3
+#_________________________________________________________________
+#!/usr/bin/env python3
+print("Content-type: text/html\n\n")
+print("<html><head><title>Environments Test</title></head><body>")
+print("Hello CGI\n")
+print("</body></html>")
+#_________________________________________________________________
+#
+# 2.2. Make it executable (You are going to have to do that for all of your scripts)
+sudo chmod 775 /var/www/test1.karasite.com/cgi/simple.cgi
+#
+# 2.3. Test the CGI
+http://tes1.karasite.com/cgi/simple.cgi
+
+
+
+#---3. Another Python script for printing environment values
+# 3.1. Prepare the CGI
+sudo nano /var/www/test1.karasite.com/cgi/envtest.cgi
+#_________________________________________________________________
+#!/usr/bin/env python3
+import os
+print("Content-type: text/html\n\n")
+print("<html><head><title>Environments Test</title></head><body>")
+print("<h2>Environment:</h2>")
+for keyval in os.environ.keys():
+   print(f"<p><b>{keyval}:</b> {os.environ[keyval]}</p>")
+print("</body></html>")
+#_________________________________________________________________
+#
+# 3.2. Make it executable
+sudo chmod 775 /var/www/test1.karasite.com/cgi/enttest.cgi
+#
+# 3.3. Test your python CGI
+http://test1.karasite.com/cgi/envtest.cgi
+
+#---4. An example with a form with text and textarea fields and 
+#   a script to process it
+# 4.1. Prepare the html page
+sudo nano /var/www/test1.karasite.com/formtext.html
+#________________________________________________________________
+<html> <title>Form With Text Fields</title>
+<body> <h1>Form With Text Fields</h1>
+<form action = "/cgi/formtext.cgi" method = "post"/>
+Name: <input type="text" name="name"> 
+Surname: <input type="text" name="surname"/>
+Age: <input type="text" name="age">
+<br><br><textarea name = "details" cols = "80" rows = "4">
+Enter details here...
+</textarea><br>
+<input type = "submit" value = "Submit"/>
+</form>
+</body> </html>
+#________________________________________________________________
+#
+# 4.2. Prepare the CGI
+sudo nano /var/www/test1.karasite.com/cgi/formtext.cgi
+#________________________________________________________________
+#!/usr/bin/env python3
+import cgi
+form = cgi.FieldStorage() 
+# Fill data from html fields
+# Get data from fields
+name = form.getvalue('name')
+surname  = form.getvalue('surname')
+age = form.getvalue('age')
+if form.getvalue('details'):
+   details = form.getvalue('details')
+else:
+   details = "Not entered"
+print("Content-type:text/html\r\n\r\n")
+print("<html> <head> <title>Form Text Fields</title>")
+print("</head> <body>")
+print(f"{name} {surname} is {age} years old")
+print(f"<br>Details:<br> {details}")
+print("</body> </html>")
+#________________________________________________________________
+#
+# 4.3. Make it executable
+sudo chmod 775 /var/www/test1.karasite.com/cgi/formtext.cgi
+#
+# 4.4. Test your python CGI
+http://test1.karasite.com/cgi/formtext.html
+
+#---5. Checkbox, Radio Button and Dropdown Box
+# 5.1. Prepare the html page
+sudo nano /var/www/test1.karasite.com/checkradio.html
+#________________________________________________________________
+<html> <title>Form With Checkbox, Radio Button, and Dropdown Box</title>
+<body> <h1>Form With Checkboxes, Radio Button and Dropdown Box</h1>
+<form action = "/cgi/checkradio.cgi" method = "POST" target = "_blank">
+<br>Primary Subjects:<br> 
+<input type = "checkbox" name = "maths" value = "on" /> Maths
+<input type = "checkbox" name = "physics" value = "on" /> Physics
+<br><br>
+Secondary Subject:<br>
+<input type = "radio" name = "subject" value = "sociology" /> Sociology
+<input type = "radio" name = "subject" value = "pyscology" /> Pyscology
+<br><br>
+Language: 
+<select name = "dropdown">
+<option value = "English" selected>English</option>
+<option value = "Spanish">Spanish</option>
+<option value = "Turkish">Turkish</option>
+</select>
+<input type = "submit" value = "Select Subjects" />
+</form>
+</body> </html>
+#________________________________________________________________
+#
+# 5.2. Prepare the CGI
+sudo nano /var/www/test1.karasite.com/cgi/checkradio.cgi
+#________________________________________________________________
+#!/usr/bin/env python3
+# Import modules for CGI handling 
+import cgi, cgitb 
+# Create instance of FieldStorage 
+form = cgi.FieldStorage() 
+# Get data from fields
+if form.getvalue('maths'):
+   math_flag = "ON"
+else:
+   math_flag = "OFF"
+if form.getvalue('physics'):
+   physics_flag = "ON"
+else:
+   physics_flag = "OFF"
+if form.getvalue('subject'):
+   subject = form.getvalue('subject')
+else:
+   subject = "Not set"
+if form.getvalue('dropdown'):
+   language = form.getvalue('dropdown')
+else:
+   language = "Not entered"
+print("Content-type:text/html\r\n\r\n")
+print("<html>")
+print("<head>")
+print("<title>Checkbox - Radio Button CGI Program</title>")
+print("</head>")
+print("<body>")
+print("Primary Subject(s):<br>")
+print(f"Math is : {math_flag}<br>")
+print(f"Physics is: {physics_flag}<br><br>")
+print(f"Secondary Subject: {subject}<br><br>")
+print(f"Language: {language}")
+print("</body> </html>")
+#________________________________________________________________
+#
+# 5.3. Make it executable
+sudo chmod 775 /var/www/test1.karasite.com/cgi/checkradio.cgi
+#
+# 5.4. Test your python CGI
+http://test1.karasite.com/checkradio.html
+
+#---6. Setting Cookies
+#   Code for setting cookies are sent just before the Content-type line
+# 6.1. Prepare cgi file
+sudo nano /var/www/test1.karasite.com/cgi/setcookies.cgi
+#________________________________________________________________
+#!/usr/bin/env python3
+# Cookies for the current directory
+print('Set-Cookie:Field1="Value1"')
+print('Set-Cookie:Field2="Value2"; Expires="Mon, 09 Mar 2021 08:13:24 GMT"')
+print('Set-Cookie:Field3="Value3"; Max-Age=10000000')   # Seconds
+# Cookies for the root directory
+print('Set-Cookie:Field4="Value4"; Path=/')
+print('Set-Cookie:Field5="Value5"; Path=/; Expires="Mon, 09 Mar 2021 08:13:24 GMT"')
+print('Set-Cookie:Field6="Value6"; Path=/; Max-Age=10000000')   # Seconds
+# HTML page
+print("Content-type:text/html\r\n\r\n")
+print("<html><head><title>Cookie Test</title></head><body>")
+print("All cookies are set\n")
+print("</body></html>")
+#________________________________________________________________
+#
+# 6.2. Make your script executable
+sudo chmod 775 /var/www/test1.karasite.com/cgi/setcookies.cgi
+#
+# 6.3. Test your python CGI
+http://test1.karasite.com/setcookies.cgi
+#
+
+#---7. Retrieving Cookies
+#   Code for retrieving cookies
+# 7.1. Prepare cgi file
+sudo nano /var/www/test1.karasite.com/cgi/getcookies.cgi
+#________________________________________________________________
+#!/usr/bin/env python3
+from os import environ
+import cgi, cgitb
+print("Content-type:text/html\r\n\r\n")
+print("<html><head><title>Retrieving Cookies</title></head><body>")
+print("<br>Retrieving Cookies<br>")
+if 'HTTP_COOKIE' in environ:
+   print("in if")
+   cookiesline = environ['HTTP_COOKIE']
+   cookies = cookiesline.split(";")
+   for cookie in cookies:
+      key, value = cookie.split("=")
+      print(f"Key = {key}, Value={value} <br>")
+else:
+   print("No cookies found")
+print("</body></html>")
+#________________________________________________________________
+#
+# 7.2. Make your script executable
+sudo chmod 775 /var/www/test1.karasite.com/cgi/getcookies.cgi
+#
+# 7.3. Test your python CGI
+http://test1.karasite.com/cgi/getcookies.cgi
+#
+
