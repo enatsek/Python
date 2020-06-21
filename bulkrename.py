@@ -9,7 +9,7 @@ occurences of the first character will be changed to the second, all of the thir
 to fourth, fifth to sixth etc. If instead of changing, you want to delete a character, 
 use / as the character to be changed.
 
-    Copyright (C) 2020 Nuri Küçükler
+    Copyright (C) 2020 Exforge exforge@karasite.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

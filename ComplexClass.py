@@ -5,7 +5,7 @@ This class is created for educational purposes,
 to understand how OOP can be handled using Python.
 This software is not error free, just like all the others. 
 
-    Copyright (C) 2020 Nuri Küçükler
+    Copyright (C) 2020 Exforge exforge@karasite.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
