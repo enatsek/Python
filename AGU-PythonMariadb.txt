@@ -1,0 +1,221 @@
+Python3 MariaDB Programming
+
+#---Copyright (C) Exforge exforge@karasite.com
+# This document is free text: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# This document is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <https://www.gnu.org/licenses/>.
+
+
+#---Specs
+# Based on the tutorial at 
+#        https://www.tutorialspoint.com/python3/python_database_access.htm
+# Pyton3.8
+# Ubuntu 20.04 Desktop
+# MariaDB 10.3.22
+# All examples should work with MySQL
+# I prefer MariaDB over MySQL because MySQL is owned by Or*cle. 
+
+
+#---1.Preparations
+# 1.1. Install pymysql python module
+pip3 install pymysql
+#
+# 1.2. Create a test DB and user on MariaDB
+# 1.2.1. Login to MariaDB Shell, depending on your config, one of them will work
+sudo mariadb
+mariadb -u root -p
+#    All further steps of 1.2.X. will be on MariaDB shell
+# 1.2.2. Create a test DB
+CREATE DATABASE PythonTest;
+# 1.2.3. Create a test user and make it admin of our test database
+GRANT ALL PRIVILEGES ON PythonTest.* TO 'ptest'@'localhost' IDENTIFIED BY 'pAsswOrd1234';
+FLUSH PRIVILEGES;
+# 1.2.4. Exit MariaDB Shell
+EXIT;
+
+#---2. A Simple Script
+# A Simple script to display MariaDB (MySQL) version
+#________________________________________________________________
+#!/usr/bin/env python3
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# execute SQL query using execute() method.
+cursor.execute("SELECT VERSION()")
+# Fetch a single row using fetchone() method.
+data = cursor.fetchone()
+print(f"Database version : {data}")
+# disconnect from server
+db.close()
+#________________________________________________________________
+
+
+#---3. Create a Table
+#________________________________________________________________
+#!/usr/bin/env python3
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# Drop table if it already exist using execute() method.
+cursor.execute("DROP TABLE IF EXISTS EMPLOYEE")
+# Create table as per requirement
+sql = "CREATE TABLE EMPLOYEE ( \
+   FIRST_NAME  CHAR(20) NOT NULL, \
+   LAST_NAME  CHAR(20), \
+   AGE INT, \
+   SEX CHAR(1), \
+   INCOME FLOAT )"
+cursor.execute(sql)
+# disconnect from server
+db.close()
+#________________________________________________________________
+
+
+#---4. Insert a Record to the Table
+#________________________________________________________________
+#!/usr/bin/env python3
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# Prepare SQL query to INSERT a record into the database.
+fname = "Joe"
+lname = "McConnor"
+age = 33
+sex = "M"
+income = 2561
+sql = f"INSERT INTO EMPLOYEE(FIRST_NAME, \
+   LAST_NAME, AGE, SEX, INCOME) \
+   VALUES ('{fname}', '{lname}', {age}, '{sex}', {income})"
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+   print("Record added")
+except:
+   # Rollback in case there is any error
+   db.rollback()
+   print("An error occured")
+# disconnect from server
+db.close()
+
+
+#---5. Read From a Table
+#!/usr/bin/env python3
+# Read records for more than 1000 income
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+lsalary = 1000
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# Prepare SQL query to READ from the table.
+sql = f"SELECT * FROM EMPLOYEE \
+      WHERE INCOME > '{lsalary}'"
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Fetch all the rows in a list of lists.
+   results = cursor.fetchall()
+   for row in results:
+      fname = row[0]
+      lname = row[1]
+      age = row[2]
+      sex = row[3]
+      income = row[4]
+      # Now print fetched result
+      print(f"Name: {fname}, LName: {lname}")
+      print(f"Age: {age}, Sex: {sex}, Income: {income}")
+except:
+   print ("Error: unable to fetch data")
+# disconnect from server
+db.close()
+
+
+#---6. Update a Table
+#!/usr/bin/env python3
+# Increase age of all males by 1
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+lsalary = 1000
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# Prepare SQL query to UPDATE required records
+sql = "UPDATE EMPLOYEE SET AGE = AGE + 1 \
+                          WHERE SEX = 'M'"
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+   print("Update succeded")
+except:
+   # Rollback in case there is any error
+   db.rollback()
+   print("An error occured")
+# disconnect from server
+db.close()
+
+#---7. Delete From a Table
+#!/usr/bin/env python3
+# Delete all more than 40 yo
+import pymysql
+server = "localhost"
+user = "ptest"
+passw = "pAsswOrd1234"
+db = "PythonTest"
+# Open database connection
+db = pymysql.connect(server, user, passw, db)
+# prepare a cursor object using cursor() method
+cursor = db.cursor()
+# Prepare SQL query to DELETE required records
+sql = "DELETE FROM EMPLOYEE WHERE AGE > '40'"
+try:
+   # Execute the SQL command
+   cursor.execute(sql)
+   # Commit your changes in the database
+   db.commit()
+   print("Delete completed")
+except:
+   # Rollback in case there is any error
+   db.rollback()
+   print("An error occured")
+# disconnect from server
+db.close()
+
+
+
