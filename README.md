@@ -20,3 +20,5 @@ AGU-PythonNotes.txt consist the notes I took while learning Python. I use them a
 AGU-PythonCGI.txt consists of a simple tutorial on using Python for CGI programming on Ubuntu 20.04 and Apache Server.
 
 enc.py is a file encoder, actually encoder/decoder, or in more accurate terms; it is both. You can encode a file with a chipper (password) and if you encode the encoded file again with the same chipper, it returns to original. It has a simple encryption, but it is still not ao easy to break. You can use it to hide to contents of some of your documents. With the somewhat rich command line argument set, you can encode specific files or an entire directory and its subdirectories etc.
+
+AGU-PythonMariadb.txt consists of a simple tutorial on using Python for MariaDB programming.
