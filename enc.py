@@ -6,7 +6,7 @@ Encode a file or group of files by given chipper. All arguments are
 optional. If you omit the chipper, you'll be asked when the program 
 begins. Encoding a file twice reverts it to the original status.
 
--c --chipper chipper encoding chipper value, must be int
+-c --chipper chipper encoding chipper value
 -d --directory directory encode contents of the directory
 -a --all encode hidden files too
 -r --recursive traverse subdirectories too
