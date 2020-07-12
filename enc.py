@@ -69,7 +69,7 @@ def decen(filename):
       filesize = filelength // ckb 
       cfilesize = str(filesize) + " KB"
    else:
-      cfilesize = str(filelenght) + " B"
+      cfilesize = str(filelength) + " B"
    # try opening and encoding file
    try:
       with open(filename, "r+b") as fio:
