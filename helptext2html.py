@@ -29,7 +29,7 @@ Exit Codes:
 12 -> Output html file already exists, user chose not to overwrite
 
 
-    Copyright (C) 2020 Exforge exforge@karasite.com
+    Copyright (C) 2020 Exforge exforge@x386.xyz
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
