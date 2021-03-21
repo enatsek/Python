@@ -11,6 +11,9 @@ Section headers may contain only one line.
 Section details follow the section header and ends when:
     - An empty line comes or
     - Another new section starts
+In section details, if a line starts with Link:, the remainder is considered as a link
+Link:https://x386.xyz will be converted to 
+<a href="https://x386.xyz" target="_blank">x386.xyz</a>
 In the html file; section headers display as a link.
 All section details are hidden at the beginning.
 When you click the section header, its details become visible,
@@ -85,6 +88,14 @@ section_ctr = 0
 
 # a line starting with a section_identifier defines a section header
 section_identifier = ["#---", "/---", "//---"]
+
+# start, mid and end of a link
+link_start = '<a href="'
+link_mid = '" target="_blank">' 
+link_end = '</a>'
+
+# a line starting with Link:, link:, or LINK: identifies a link
+link_identifier = "Link:"
 
 status = -1
 # -1 -> just started, 
@@ -163,9 +174,20 @@ with open(text_file) as in_file, open(html_file, "w") as out_file:
                 out_file.write(section_footer)
                 status = 2                  # section is ended
             continue
-        # if we are in the mode of adding section details, just add it
+        # if we are in the mode of adding section details
         if status == 1:
-            out_file.write(html.escape(line))
+            # Check if it is a link line:
+            if line.startswith(link_identifier):
+                # Stripe link_identifier
+                link_text = line[len(link_identifier):-1]
+                # Convert the line to an href link
+                # line = <a href="link_text" target="_blank">link_text</a>
+                line = link_start + link_text + link_mid + link_text + link_end + "\n"
+                # add the line                
+                out_file.write(line)
+            # otherwise, convert html escape characters and add the line
+            else:
+                out_file.write(html.escape(line))
     # EOF is reached, prepare bottom lines
     out_file.write(section_footer)          # end section
     out_file.write("<br /><br /><br />")    # put 3 empty lines
