@@ -24,7 +24,7 @@ if they are skipped, program asks for them as input.
 There will be a javacript function, named myFunction to hide and display section details.
 Every new section will be named as Div+section_ctr, the function will be called for each
 section to hide them initially.
-html.escape() method is used to translate escape sequences for <, >, and &
+html_escape() method is used to translate escape sequences for <, >, &, [, and ]
 A sample.txt file and a sample.html file are given as examples.
 Exit Codes:
 0  -> Everything is fine
@@ -51,6 +51,23 @@ Exit Codes:
 from sys import argv
 import os
 import html
+
+# List of HTML Escape Characters to Convert
+html_escape_table = {
+    "&": "&amp;",
+    ">": "&gt;",
+    "<": "&lt;",
+    "[":"&lsqb;",
+    "]":"&rsqb;",
+    }
+
+# Taken from:
+# https://stackoverflow.com/questions/2077283/escape-special-html-characters-in-python#2077321
+def html_escape(text):
+    # Convert HTML Escape Characters.
+    return "".join(html_escape_table.get(c,c) for c in text)
+
+
 
 # Start code for html
 html_header = "<!DOCTYPE html> <html> <head> </head> <body>"
@@ -187,7 +204,7 @@ with open(text_file) as in_file, open(html_file, "w") as out_file:
                 out_file.write(line)
             # otherwise, convert html escape characters and add the line
             else:
-                out_file.write(html.escape(line))
+                out_file.write(html_escape(line))
     # EOF is reached, prepare bottom lines
     out_file.write(section_footer)          # end section
     out_file.write("<br /><br /><br />")    # put 3 empty lines
