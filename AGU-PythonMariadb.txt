@@ -14,8 +14,8 @@ Python3 MariaDB Programming
 
 
 #---Specs
-# Based on the tutorial at 
-#        https://www.tutorialspoint.com/python3/python_database_access.htm
+# Based on the tutorial at:
+Link:https://www.tutorialspoint.com/python3/python_database_access.htm
 # Pyton3.8
 # Ubuntu 20.04 Desktop
 # MariaDB 10.3.22
@@ -123,9 +123,11 @@ except:
    print("An error occured")
 # disconnect from server
 db.close()
+#________________________________________________________________
 
 
 #---5. Read From a Table
+#________________________________________________________________
 #!/usr/bin/env python3
 # Read records for more than 1000 income
 import pymysql
@@ -159,9 +161,11 @@ except:
    print ("Error: unable to fetch data")
 # disconnect from server
 db.close()
+#________________________________________________________________
 
 
 #---6. Update a Table
+#________________________________________________________________
 #!/usr/bin/env python3
 # Increase age of all males by 1
 import pymysql
@@ -189,8 +193,10 @@ except:
    print("An error occured")
 # disconnect from server
 db.close()
+#________________________________________________________________
 
 #---7. Delete From a Table
+#________________________________________________________________
 #!/usr/bin/env python3
 # Delete all more than 40 yo
 import pymysql
@@ -216,6 +222,7 @@ except:
    print("An error occured")
 # disconnect from server
 db.close()
+#________________________________________________________________
 
 
 

@@ -15,15 +15,15 @@ Python 3 CGI Programming
 
 #---Specs
 # Based on the tutorial at
-#    https://www.tutorialspoint.com/python/python_cgi_programming.htm
+Link:https://www.tutorialspoint.com/python/python_cgi_programming.htm
 # Python2 codes upgraded to Python3
 # Operating System: Ubuntu Server 20.04
 # HTTP Server: Apache2
 # Python Version: python3 (3.8 actually)
-# My Server: test1.karasite.com
+# My Server: test1.x11.xyz
 # Location on server: 
-#   html files: /var/www/test1.karasite.com
-#   cgi files:  /var/www/test1.karasite.com/cgi
+#   html files: /var/www/test1.x11.xyz
+#   cgi files:  /var/www/test1.x11.xyz/cgi
 
 #---1. Enabling CGI for a site
 # 1.1. Enable cgi for Apache
@@ -32,8 +32,8 @@ sudo systemctl restart apache2
 # 1.2. Enable a cgi directory for the site
 # Add to the vhost site conf
 #_____________________________________________________________
-        ScriptAlias /bin/ "/var/www/test1.karasite.com/cgi/"
-        <Directory "/var/www/test1.karasite.com/cgi/">
+        ScriptAlias /bin/ "/var/www/test1.x11.xyz/cgi/"
+        <Directory "/var/www/test1.x11.xyz/cgi/">
                 Require all granted
                 Options +ExecCGI
                 AddHandler cgi-script .cgi
@@ -44,7 +44,7 @@ sudo systemctl reload apache2
 
 #---2. Simplest Cgi
 # 2.1. Prepare the cgi
-sudo nano /var/www/test1.karasite.com/cgi/simple.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/simple.cgi
 # Remember to include the line #/usr/bin/env python3
 #_________________________________________________________________
 #!/usr/bin/env python3
@@ -55,7 +55,7 @@ print("</body></html>")
 #_________________________________________________________________
 #
 # 2.2. Make it executable (You are going to have to do that for all of your scripts)
-sudo chmod 775 /var/www/test1.karasite.com/cgi/simple.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/simple.cgi
 #
 # 2.3. Test the CGI
 http://tes1.karasite.com/cgi/simple.cgi
@@ -64,7 +64,7 @@ http://tes1.karasite.com/cgi/simple.cgi
 
 #---3. Another Python script for printing environment values
 # 3.1. Prepare the CGI
-sudo nano /var/www/test1.karasite.com/cgi/envtest.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/envtest.cgi
 #_________________________________________________________________
 #!/usr/bin/env python3
 import os
@@ -77,15 +77,15 @@ print("</body></html>")
 #_________________________________________________________________
 #
 # 3.2. Make it executable
-sudo chmod 775 /var/www/test1.karasite.com/cgi/enttest.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/envtest.cgi
 #
 # 3.3. Test your python CGI
-http://test1.karasite.com/cgi/envtest.cgi
+http://test1.x11.xyz/cgi/envtest.cgi
 
 #---4. An example with a form with text and textarea fields and 
 #   a script to process it
 # 4.1. Prepare the html page
-sudo nano /var/www/test1.karasite.com/formtext.html
+sudo nano /var/www/test1.x11.xyz/formtext.html
 #________________________________________________________________
 <html> <title>Form With Text Fields</title>
 <body> <h1>Form With Text Fields</h1>
@@ -102,7 +102,7 @@ Enter details here...
 #________________________________________________________________
 #
 # 4.2. Prepare the CGI
-sudo nano /var/www/test1.karasite.com/cgi/formtext.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/formtext.cgi
 #________________________________________________________________
 #!/usr/bin/env python3
 import cgi
@@ -125,14 +125,14 @@ print("</body> </html>")
 #________________________________________________________________
 #
 # 4.3. Make it executable
-sudo chmod 775 /var/www/test1.karasite.com/cgi/formtext.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/formtext.cgi
 #
 # 4.4. Test your python CGI
-http://test1.karasite.com/cgi/formtext.html
+http://test1.x11.xyz/cgi/formtext.html
 
 #---5. Checkbox, Radio Button and Dropdown Box
 # 5.1. Prepare the html page
-sudo nano /var/www/test1.karasite.com/checkradio.html
+sudo nano /var/www/test1.x11.xyz/checkradio.html
 #________________________________________________________________
 <html> <title>Form With Checkbox, Radio Button, and Dropdown Box</title>
 <body> <h1>Form With Checkboxes, Radio Button and Dropdown Box</h1>
@@ -157,7 +157,7 @@ Language:
 #________________________________________________________________
 #
 # 5.2. Prepare the CGI
-sudo nano /var/www/test1.karasite.com/cgi/checkradio.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/checkradio.cgi
 #________________________________________________________________
 #!/usr/bin/env python3
 # Import modules for CGI handling 
@@ -196,15 +196,15 @@ print("</body> </html>")
 #________________________________________________________________
 #
 # 5.3. Make it executable
-sudo chmod 775 /var/www/test1.karasite.com/cgi/checkradio.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/checkradio.cgi
 #
 # 5.4. Test your python CGI
-http://test1.karasite.com/checkradio.html
+http://test1.x11.xyz/checkradio.html
 
 #---6. Setting Cookies
 #   Code for setting cookies are sent just before the Content-type line
 # 6.1. Prepare cgi file
-sudo nano /var/www/test1.karasite.com/cgi/setcookies.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/setcookies.cgi
 #________________________________________________________________
 #!/usr/bin/env python3
 # Cookies for the current directory
@@ -223,16 +223,16 @@ print("</body></html>")
 #________________________________________________________________
 #
 # 6.2. Make your script executable
-sudo chmod 775 /var/www/test1.karasite.com/cgi/setcookies.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/setcookies.cgi
 #
 # 6.3. Test your python CGI
-http://test1.karasite.com/setcookies.cgi
+http://test1.x11.xyz/setcookies.cgi
 #
 
 #---7. Retrieving Cookies
 #   Code for retrieving cookies
 # 7.1. Prepare cgi file
-sudo nano /var/www/test1.karasite.com/cgi/getcookies.cgi
+sudo nano /var/www/test1.x11.xyz/cgi/getcookies.cgi
 #________________________________________________________________
 #!/usr/bin/env python3
 from os import environ
@@ -253,9 +253,9 @@ print("</body></html>")
 #________________________________________________________________
 #
 # 7.2. Make your script executable
-sudo chmod 775 /var/www/test1.karasite.com/cgi/getcookies.cgi
+sudo chmod 775 /var/www/test1.x11.xyz/cgi/getcookies.cgi
 #
 # 7.3. Test your python CGI
-http://test1.karasite.com/cgi/getcookies.cgi
+http://test1.x11.xyz/cgi/getcookies.cgi
 #
 
