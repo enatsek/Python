@@ -14,7 +14,7 @@ Python 3 Notes
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 
-#---Boolean expressions
+#---1. Boolean expressions
 x == y
 x != y
 x >= y
@@ -25,7 +25,7 @@ not (x > y)
 n%2 == 0 or n%3 == 0	# n is divisible by 2 or 3
 
 
-#---Unary operators
+#---2. Unary operators
 p = 14
 p += 1
 p -= 1
@@ -36,7 +36,7 @@ p //= 7
 p %= 11
 
 
-#---Bitwise operators
+#---3. Bitwise operators
 i1 = 37
 i2 = 43
 i = i1 & i2         # bitwise and
@@ -52,7 +52,7 @@ i ^= 128
 i |= 231
 
 
-#---Type Conversions
+#---4. Type Conversions
 x = int(3.5)
 x = int("23")
 y = float(5)
@@ -68,7 +68,7 @@ o = oct(88)         # returns octal equivalent of an integer as a string
 t1 = type(h)        # returns the type of the variable (or value)
 
 
-#---if Construction
+#---5. if Construction
 if x < 0:
     pass
 elif x > 100:
@@ -84,7 +84,7 @@ elif day_number == 0:
     day = 'Sunday'
 
 
-#---while Construction
+#---6. while Construction
 while n > 0:
     print(n)
     n = n - 1
@@ -98,7 +98,7 @@ while True:
 print('Done!')
 
 
-#---Recursion
+#---7. Recursion
 def countdown(n):
     if n <= 0:
         print('Finito')
@@ -107,14 +107,14 @@ def countdown(n):
         countdown(n-1)
 
 
-#---Input
+#---8. Input
 name = input("Your name please: ")
 # Type check
 if not isinstance(n, int):
 	print('Only integers.')
 
 
-#---Functions
+#---9. Functions
 def func_name(input)
     return input * 2
 # Positional arguments
@@ -135,7 +135,7 @@ def minimum(*n):
 
 
 
-#---Strings
+#---10. Strings
 fruit = "karpuz"
 first = fruit[0]
 last = fruit[len(fruit)-1]     #Or fruit[-1]
@@ -171,7 +171,7 @@ print(first * 3 + second * 2)
 
 
 
-#---String Formatting
+#---11. String Formatting
 # 1
 str3 = "Hello {}, {}, and {}"
 print(str3.format("Ali", "Ayşe", "Fatma"))
@@ -200,7 +200,7 @@ print(my_str.format("item1", "item2", "item3"))
 
 
 
-#---Complex Numbers
+#---12. Complex Numbers
 c1 = 1 + 1j
 c2 = 1 - 2j
 c3 = complex()
@@ -216,7 +216,7 @@ print("c2**0.5:", c2**0.5)
 print("c1**c2:", c1**c2)
 
 
-#---Fractions
+#---13. Fractions
 from fractions import Fraction
 f1 = Fraction(2,6)
 f2 = Fraction(3,7)
@@ -226,7 +226,7 @@ print("f1 + f2", f1 + f2)
 print("f1**2:", f1**2, "f2**0.5", f2**0.5)
 
 
-#---Decimal
+#---14. Decimal
 from decimal import Decimal as D
 print(D(3.14), D("3.14"))
 d = D()
@@ -234,7 +234,7 @@ d = D("0.1") * D(3) - D("0.3")
 print(d)
 
 
-#---Lists
+#---15. Lists
 #  assignment
 cheeses = ['Cheddar', 'Edam', 'Gouda']
 numbers = [42, 123]
@@ -317,7 +317,7 @@ delimiter = '-'
 t = s.split(delimiter)	# t = ['spam', 'spam', 'spam']
 
 
-#---Dictionaries
+#---16. Dictionaries
 #  assignment
 eng2sp['one'] = 'uno'
 eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
@@ -351,7 +351,7 @@ d['age'] = d.get('age', 0) + 1  # if exist increase value by one, else set 1
 del d2["A"]
 
 
-#---Tuples
+#---17. Tuples
 #   Like lists but immutable
 #  Assignment
 t1 = 'b', 'c', 'd', 'e'
@@ -379,7 +379,7 @@ def printall(*args):
 a, b = b, a
 
 
-#---Byte Arrays
+#---18. Byte Arrays
 b1 = bytearray()                    # Empty
 b2 = bytearray(10)                  # 10 zeros
 b3 = bytearray(b"Lina")             # From string
@@ -393,7 +393,7 @@ b3 = b3.upper()
 print(f"b3: {b3}")
 
 
-#---Sets
+#---19. Sets
 s1 = {"a", "b", "b", "c"}
 print(s1)
 sp = set()                  # small primes
@@ -416,7 +416,7 @@ print(fsp)
 
 
 
-#---File manipulation
+#---20. File manipulation
 # File manipulation in text mode
 # Read input file
 with open('fear.txt') as fr:
@@ -455,7 +455,7 @@ for key in db.keys():
     print(key, db[key])
 
 
-#---Pickle
+#---21. Pickle
 #  Convert any data type to string to store it
 #  Then revert it back to original type
 import pickle
@@ -473,14 +473,14 @@ d2 = pickle.loads(sd1)
 
 
 
-#---Simple Program Arguments
+#---22. Simple Program Arguments
 from sys import argv
 script, first, second, third = argv
 print(f"Script {script} runs with the params {first}, {second}, {third}")
 
 
 
-#---Program Arguments Parsing
+#---23. Program Arguments Parsing
 import argparse
 # Start parser
 parser = argparse.ArgumentParser(description="Demo program", epilog="Long Desription")
@@ -515,7 +515,7 @@ print(args.echo)
 
 
 
-#---OS Commands
+#---24. OS Commands
 import os
 #  if file exists
 if os.path.exists(ffile):
@@ -543,7 +543,7 @@ print("Command output:")
 print(res)
 
 
-#---Using your own library
+#---25. Using your own library
 #  put your library in mylib.py file
 import mylib
 txt = "kilim"
@@ -552,7 +552,7 @@ txtl = mylib.tr_lower(txtu)
 
 
 
-#---Shortcuts
+#---26. Shortcuts
 # shortcut factorial
 def factorial(n):
     return 1 if n == 0 else n * factorial(n-1)
@@ -563,7 +563,7 @@ def only_upper(t):
 y = math.log(x) if x > 0 else float('nan')
 
 
-#---Random
+#---27. Random
 #  [0,1] float
 x = random.random()
 #  [a,b] integer
@@ -574,7 +574,7 @@ x = random.choice(t)
 
 
 
-#---Math Module
+#---28. Math Module
 import math
 #  Trig
 math.cos(radians) 
@@ -598,7 +598,7 @@ math.fabs(x)   # absolute value
 math.sqrt(x)
 
 
-#---Tips
+#---29. Tips
 # Floor division and modulus
 hours = total_minutes // 60
 minutes = total_minutes % 60
@@ -618,7 +618,7 @@ print("%2d    %2.7f  %2.7f  %2.12f " % (i, r1, r2, r3))
 
 
 
-#---Turtle Module
+#---30. Turtle Module
 import turtle
 myturtle = turtle.Turtle()
 # Move
@@ -639,7 +639,7 @@ turtle.mainloop()
 
 
 
-#---Class Magic Methods
+#---31. Class Magic Methods
 __new__(cls, other) 		To get called in an object's instantiation.
 __init__(self, other) 		To get called by the __new__ method.
 __del__(self) 			Destructor method.
