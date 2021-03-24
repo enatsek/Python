@@ -82,7 +82,7 @@ sudo chmod 775 /var/www/test1.x11.xyz/cgi/envtest.cgi
 # 3.3. Test your python CGI
 http://test1.x11.xyz/cgi/envtest.cgi
 
-#---4. An example with a form with text and textarea fields and 
+#---4. An example with a form with text and textarea fields 
 #   a script to process it
 # 4.1. Prepare the html page
 sudo nano /var/www/test1.x11.xyz/formtext.html
