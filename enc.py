@@ -18,7 +18,7 @@ Return Codes:
 0  : Everything is fine
 11 : Empty file list, no files to encode
 
-   ---Copyright (C) Exforge exforge@x386.xyz
+   ---Copyright (C) Exforge exforge@karasite.com
    This document is free text: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
@@ -231,10 +231,10 @@ for filename in allfiles:
    ret = decen(filename)
    if not quiet:
       if ret == 11:
-         sys.stdout.write("File ", filename, "does not exist or is not a file")
+         sys.stdout.write("File " + filename + "does not exist or is not a file")
          sys.stdout.flush()
       elif ret == 12:
-         sys.stdout.write("Unknown encode error on ", filename)
+         sys.stdout.write("Unknown encode error on " + filename)
          sys.stdout.flush()
 if not quiet:
    print("Done")
