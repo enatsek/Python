@@ -52,6 +52,14 @@ def decen(filename):
    if not os.path.isfile(filename):
       return(11)     # file not exists or not a file, file error
    filelength = os.path.getsize(filename)
+   if short:
+      if filelength < 1024:
+         encodelenght = filelength
+      else:
+         encodelenght = 1024
+   else:
+      encodelenght = filelength
+   
    lchippers = len(chippers)
    ckb = 1024              # 1 KB
    cmb = ckb * ckb         # 1 MB
@@ -78,10 +86,15 @@ def decen(filename):
             sys.stdout.flush()
          indata = fio.read(filelength)
          outdata = bytearray(filelength)
+         if short:
+            outdata = bytearray(indata)
          # XOR of bytes in file with the chipper bytes
          for i in range(filelength):
             chipper = chippers[i % lchippers]
-            outdata[i] = indata[i] ^ chipper
+            if i < encodelenght:
+               outdata[i] = indata[i] ^ chipper
+            else: 
+               break
             if verbose and (i>0) and (i % breaker == 0):
                percent = i / filelength
                b = ""
@@ -147,7 +160,7 @@ def getchipper():
    return(chipper1)
 
 # Reset all parameters to False, "" or []
-all = recursive = verbose = quiet = False
+all = recursive = verbose = quiet = short = False
 chipper = ""
 directory = ""
 files = []
@@ -160,9 +173,10 @@ desc = "This program encodes a file with a chipper. To decode it, you have to " 
    "might be used to hide documents on your computer\n" + \
    "You can supply a directory with -d option to include all files in it, " + \
    "add -r to traverse subdirectories, use -a to include hidden files. -v and" + \
-   " -q are used for verbose and quite modes. With -c you can give you chipper " + \
+   " -q are used for verbose and quite modes. With -c you can give your chipper " + \
    "eg. password at the command line, if you omit it you'll be asked for it by " + \
-   "the program. Finally you can add filenames to encode"
+   "the program. -s is used to imply short encoding, only the first 1 KB of the" + \
+   " file is encoded. Finally you can add filenames to encode"
 
 # Start parser
 parser = argparse.ArgumentParser(description="Encode", epilog=desc)
@@ -184,6 +198,8 @@ parser.add_argument("-a", "--all",
                     help="do not ignore entries starting with .", action="store_true")
 parser.add_argument("-r", "--recursive", 
                     help="recurse subdirectories", action="store_true")
+parser.add_argument("-s", "--short", 
+                    help="short mode, only encode first 1KB", action="store_true")
 
 # Positional argument for the files to encode
 parser.add_argument("files", nargs ="*",
@@ -198,6 +214,7 @@ recursive = args.recursive
 quiet = args.quiet
 verbose = args.verbose
 files = args.files
+short = args.short
 
 # Fill the file list from the given directory
 if directory != "":
