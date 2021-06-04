@@ -70,7 +70,7 @@ def html_escape(text):
 
 
 # Start code for html
-html_header = "<!DOCTYPE html> <html> <head> </head> <body>"
+html_header = '<!DOCTYPE html> <html> <head> <meta charset="UTF-8"> </head> <body>'
 # end code for html
 html_footer = "</body> </html>"
 # Section header, section detail and number of section will be added dynamically
