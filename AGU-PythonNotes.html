@@ -1,0 +1,674 @@
+<!DOCTYPE html> <html> <head> <meta charset="UTF-8"></head><body><H1>Python 3 Notes
+</H1><p> <H4><a href="javascript:myFunction('Div1')">Copyright (C) Exforge exforge@x386.xyz
+</a> </H4><div id="Div1" style="margin-left:1%;"><pre >#
+# - This document is free text: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# - This document is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# - You should have received a copy of the GNU General Public License
+# along with this program.  If not, see &lt;https://www.gnu.org/licenses/&gt;.
+</pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div2')">1. Boolean expressions
+</a> </H4><div id="Div2" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">x == y
+</span></code><code><span style="Color:DodgerBlue">x != y
+</span></code><code><span style="Color:DodgerBlue">x &gt;= y
+</span></code><code><span style="Color:DodgerBlue">x &lt;= y
+</span></code><code><span style="Color:DodgerBlue">x &gt; y
+</span></code><code><span style="Color:DodgerBlue">x &lt; y
+</span></code><code><span style="Color:DodgerBlue">not (x &gt; y)
+</span></code><code><span style="Color:DodgerBlue">n%2 == 0 or n%3 == 0	# n is divisible by 2 or 3
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div3')">2. Unary operators
+</a> </H4><div id="Div3" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">p = 14
+</span></code><code><span style="Color:DodgerBlue">p += 1
+</span></code><code><span style="Color:DodgerBlue">p -= 1
+</span></code><code><span style="Color:DodgerBlue">p *= 3
+</span></code><code><span style="Color:DodgerBlue">p /= 2
+</span></code><code><span style="Color:DodgerBlue">p **= 3
+</span></code><code><span style="Color:DodgerBlue">p //= 7
+</span></code><code><span style="Color:DodgerBlue">p %= 11
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div4')">3. Bitwise operators
+</a> </H4><div id="Div4" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">i1 = 37
+</span></code><code><span style="Color:DodgerBlue">i2 = 43
+</span></code><code><span style="Color:DodgerBlue">i = i1 &amp; i2         # bitwise and
+</span></code><code><span style="Color:DodgerBlue">i = i1 | i2         # bitwise or
+</span></code><code><span style="Color:DodgerBlue">i = i1 ^ i2         # bitwise xor
+</span></code><code><span style="Color:DodgerBlue">i = ~i1             # bitwise complement (invert)
+</span></code><code><span style="Color:DodgerBlue">i = i1&lt;&lt;1           # bitwise binary left shift
+</span></code><code><span style="Color:DodgerBlue">i = i1&gt;&gt;1           # bitwise binary right shift
+</span></code><code><span style="Color:DodgerBlue">i &amp;= 24
+</span></code><code><span style="Color:DodgerBlue">i &lt;&lt;= 3
+</span></code><code><span style="Color:DodgerBlue">i &gt;&gt;= 2
+</span></code><code><span style="Color:DodgerBlue">i ^= 128
+</span></code><code><span style="Color:DodgerBlue">i |= 231
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div5')">4. Type Conversions
+</a> </H4><div id="Div5" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">x = int(3.5)
+</span></code><code><span style="Color:DodgerBlue">x = int("23")
+</span></code><code><span style="Color:DodgerBlue">y = float(5)
+</span></code><code><span style="Color:DodgerBlue">y = float("14")
+</span></code><code><span style="Color:DodgerBlue">s = str(18)
+</span></code><code><span style="Color:DodgerBlue">s = str(3.5)
+</span></code><code><span style="Color:DodgerBlue">c = chr(x)          # Convert an integer to a string (0-255)
+</span></code><code><span style="Color:DodgerBlue">c = complex(1)      # 1 + 0j
+</span></code><code><span style="Color:DodgerBlue">c = complex(3, 4)   # 3 + 4j
+</span></code><code><span style="Color:DodgerBlue">o = ord("a")        # returns unicode integer of the character
+</span></code><code><span style="Color:DodgerBlue">h = hex(78)         # returns hex equivalent of an integer as a string
+</span></code><code><span style="Color:DodgerBlue">o = oct(88)         # returns octal equivalent of an integer as a string
+</span></code><code><span style="Color:DodgerBlue">t1 = type(h)        # returns the type of the variable (or value)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div6')">5. if Construction
+</a> </H4><div id="Div6" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">if x &lt; 0:
+</span></code><code><span style="Color:DodgerBlue">    pass
+</span></code><code><span style="Color:DodgerBlue">elif x &gt; 100:
+</span></code><code><span style="Color:DodgerBlue">    print("More than 100")
+</span></code><code><span style="Color:DodgerBlue">else:
+</span></code><code><span style="Color:DodgerBlue">    print("Between")
+</span></code># switch like if
+<code><span style="Color:DodgerBlue">if 1 &lt;= day_number &lt;= 5:
+</span></code><code><span style="Color:DodgerBlue">    day = 'Weekday'
+</span></code><code><span style="Color:DodgerBlue">elif day_number == 6:
+</span></code><code><span style="Color:DodgerBlue">    day = 'Saturday'
+</span></code><code><span style="Color:DodgerBlue">elif day_number == 0:
+</span></code><code><span style="Color:DodgerBlue">    day = 'Sunday'
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div7')">6. while Construction
+</a> </H4><div id="Div7" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">while n &gt; 0:
+</span></code><code><span style="Color:DodgerBlue">    print(n)
+</span></code><code><span style="Color:DodgerBlue">    n = n - 1
+</span></code><code><span style="Color:DodgerBlue">print("Finished")
+</span></code># While with break
+<code><span style="Color:DodgerBlue">while True:
+</span></code><code><span style="Color:DodgerBlue">    line = input('&gt; ')
+</span></code><code><span style="Color:DodgerBlue">    if line == 'done':
+</span></code><code><span style="Color:DodgerBlue">        break
+</span></code><code><span style="Color:DodgerBlue">    print(line)
+</span></code><code><span style="Color:DodgerBlue">print('Done!')
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div8')">7. Recursion
+</a> </H4><div id="Div8" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">def countdown(n):
+</span></code><code><span style="Color:DodgerBlue">    if n &lt;= 0:
+</span></code><code><span style="Color:DodgerBlue">        print('Finito')
+</span></code><code><span style="Color:DodgerBlue">    else:
+</span></code><code><span style="Color:DodgerBlue">        print(n, end = " ")
+</span></code><code><span style="Color:DodgerBlue">        countdown(n-1)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div9')">8. Input
+</a> </H4><div id="Div9" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">name = input("Your name please: ")
+</span></code># Type check
+<code><span style="Color:DodgerBlue">if not isinstance(n, int):
+</span></code><code><span style="Color:DodgerBlue">	print('Only integers.')
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div10')">9. Functions
+</a> </H4><div id="Div10" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">def func_name(input)
+</span></code><code><span style="Color:DodgerBlue">    return input * 2
+</span></code># Positional arguments
+<code><span style="Color:DodgerBlue">def func(a, b=2, c=3):
+</span></code><code><span style="Color:DodgerBlue">    print(a, b, c)
+</span></code><code><span style="Color:DodgerBlue">func(1)                 # prints: 1 2 3
+</span></code><code><span style="Color:DodgerBlue">func(b=5, a=7, c=9)     # prints: 7 5 9
+</span></code><code><span style="Color:DodgerBlue">func(42, c=9)           # prints: 42 2 9
+</span></code><code><span style="Color:DodgerBlue">func(42, 43, 44)        # prints: 42, 43, 44
+</span></code># Variable positional arguments
+<code><span style="Color:DodgerBlue">def minimum(*n):
+</span></code><code><span style="Color:DodgerBlue">    if n:       # if not empty
+</span></code><code><span style="Color:DodgerBlue">        mn = n&lsqb;0&rsqb;
+</span></code><code><span style="Color:DodgerBlue">        for value in n&lsqb;1:&rsqb;:
+</span></code><code><span style="Color:DodgerBlue">            if value &lt; mn:
+</span></code><code><span style="Color:DodgerBlue">                mn = value
+</span></code><code><span style="Color:DodgerBlue">        print(mn)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div11')">10. Strings
+</a> </H4><div id="Div11" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">fruit = "karpuz"
+</span></code><code><span style="Color:DodgerBlue">first = fruit&lsqb;0&rsqb;
+</span></code><code><span style="Color:DodgerBlue">last = fruit&lsqb;len(fruit)-1&rsqb;     #Or fruit&lsqb;-1&rsqb;
+</span></code>#  traverse a string
+<code><span style="Color:DodgerBlue">for letter in fruit:
+</span></code><code><span style="Color:DodgerBlue">    print(letter, end=" ")
+</span></code><code><span style="Color:DodgerBlue">print()
+</span></code># Multi line strings
+<code><span style="Color:DodgerBlue">str1 = """Multi
+</span></code><code><span style="Color:DodgerBlue">line 
+</span></code><code><span style="Color:DodgerBlue">string"""
+</span></code><code><span style="Color:DodgerBlue">str2 = "Another\nmultiline\nstring"
+</span></code>#  indices
+<code><span style="Color:DodgerBlue">t&lsqb;0:5&rsqb;		# from 0 to 4 
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;10:18&rsqb;	# from 10 to 17
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;:10&rsqb;		# from beginning to 9
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;20:&rsqb;		# from 20 to end
+</span></code>#  string functions
+<code><span style="Color:DodgerBlue">t.lower()	# returns lowercase
+</span></code><code><span style="Color:DodgerBlue">t.upper()	# returns uppercase
+</span></code><code><span style="Color:DodgerBlue">t.strip()	# remove beginning and ending spaces
+</span></code><code><span style="Color:DodgerBlue">len(t)		# length
+</span></code># raw string
+<code><span style="Color:DodgerBlue">raw_string = r"\lalalala'\n\r\'"
+</span></code><code><span style="Color:DodgerBlue">print(raw_string)
+</span></code># unicode string
+<code><span style="Color:DodgerBlue">unicode_string = u'A unicode \u018e \u019e string \xf1'
+</span></code># String addition and multiplication
+<code><span style="Color:DodgerBlue">first = "gelecek"
+</span></code><code><span style="Color:DodgerBlue">second = " misin"
+</span></code><code><span style="Color:DodgerBlue">print (first + second)
+</span></code><code><span style="Color:DodgerBlue">print(first * 3 + second * 2)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div12')">11. String Formatting
+</a> </H4><div id="Div12" style="margin-left:1%;"><pre ># 1
+<code><span style="Color:DodgerBlue">str3 = "Hello {}, {}, and {}"
+</span></code><code><span style="Color:DodgerBlue">print(str3.format("Ali", "Ayşe", "Fatma"))
+</span></code># 2
+<code><span style="Color:DodgerBlue">str4 = "This is {0}. {1} hates {0}"
+</span></code><code><span style="Color:DodgerBlue">print(str4.format("Hasan", "Hüseyin"))
+</span></code># 4
+<code><span style="Color:DodgerBlue">str5 = "I am {name}, I am {age} years old."
+</span></code><code><span style="Color:DodgerBlue">print(str5.format(name = "Nuri", age = 51))
+</span></code># 5 Since Python 3.6
+<code><span style="Color:DodgerBlue">name = "Exforge"
+</span></code><code><span style="Color:DodgerBlue">age = 51
+</span></code><code><span style="Color:DodgerBlue">str6 = f"My name is {name} and I am {age} years old."
+</span></code><code><span style="Color:DodgerBlue">pi = math.pi
+</span></code><code><span style="Color:DodgerBlue">width = 8
+</span></code><code><span style="Color:DodgerBlue">precision = 4
+</span></code><code><span style="Color:DodgerBlue">print(f"pi: {pi}")                      # pi: 3.141592653589793
+</span></code><code><span style="Color:DodgerBlue">print(f"pi: {pi:{width}}")              # pi: 3.141592653589793
+</span></code><code><span style="Color:DodgerBlue">print(f"pi: {pi:.{precision}}")         # pi: 3.142
+</span></code><code><span style="Color:DodgerBlue">print(f"pi: {pi:{width}.{precision}}")  # pi:    3.142
+</span></code># format using string formatter
+<code><span style="Color:DodgerBlue">my_str = "Testing with 1 parameter {}"
+</span></code><code><span style="Color:DodgerBlue">print(my_str.format("item1"))
+</span></code><code><span style="Color:DodgerBlue">my_str = "Testing with 3 parameters {} {} {}"
+</span></code><code><span style="Color:DodgerBlue">print(my_str.format("item1", "item2", "item3"))
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div13')">12. Complex Numbers
+</a> </H4><div id="Div13" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">c1 = 1 + 1j
+</span></code><code><span style="Color:DodgerBlue">c2 = 1 - 2j
+</span></code><code><span style="Color:DodgerBlue">c3 = complex()
+</span></code><code><span style="Color:DodgerBlue">print(c1)
+</span></code><code><span style="Color:DodgerBlue">print(c1.real, c1.imag)
+</span></code><code><span style="Color:DodgerBlue">print(c1.conjugate())
+</span></code><code><span style="Color:DodgerBlue">print("c1 + c2:", c1 + c2)
+</span></code><code><span style="Color:DodgerBlue">print("c1 - c2:", c1 - c2)
+</span></code><code><span style="Color:DodgerBlue">print("c1 * c2:", c1 * c2)
+</span></code><code><span style="Color:DodgerBlue">print("c1 / c2:", c1 / c2)
+</span></code><code><span style="Color:DodgerBlue">print("c1**2:", c1**2)
+</span></code><code><span style="Color:DodgerBlue">print("c2**0.5:", c2**0.5)
+</span></code><code><span style="Color:DodgerBlue">print("c1**c2:", c1**c2)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div14')">13. Fractions
+</a> </H4><div id="Div14" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">from fractions import Fraction
+</span></code><code><span style="Color:DodgerBlue">f1 = Fraction(2,6)
+</span></code><code><span style="Color:DodgerBlue">f2 = Fraction(3,7)
+</span></code><code><span style="Color:DodgerBlue">print(f1, f2)
+</span></code><code><span style="Color:DodgerBlue">print(f1.numerator, f1.denominator)
+</span></code><code><span style="Color:DodgerBlue">print("f1 + f2", f1 + f2)
+</span></code><code><span style="Color:DodgerBlue">print("f1**2:", f1**2, "f2**0.5", f2**0.5)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div15')">14. Decimal
+</a> </H4><div id="Div15" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">from decimal import Decimal as D
+</span></code><code><span style="Color:DodgerBlue">print(D(3.14), D("3.14"))
+</span></code><code><span style="Color:DodgerBlue">d = D()
+</span></code><code><span style="Color:DodgerBlue">d = D("0.1") * D(3) - D("0.3")
+</span></code><code><span style="Color:DodgerBlue">print(d)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div16')">15. Lists
+</a> </H4><div id="Div16" style="margin-left:1%;"><pre >#  assignment
+<code><span style="Color:DodgerBlue">cheeses = &lsqb;'Cheddar', 'Edam', 'Gouda'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">numbers = &lsqb;42, 123&rsqb;
+</span></code><code><span style="Color:DodgerBlue">empty = &lsqb;&rsqb;
+</span></code><code><span style="Color:DodgerBlue">numbers&lsqb;1&rsqb; = 5		# Lists are mutable
+</span></code><code><span style="Color:DodgerBlue">l = list()		# Empty
+</span></code><code><span style="Color:DodgerBlue">l = &lsqb;&rsqb;
+</span></code><code><span style="Color:DodgerBlue">l = &lsqb;x**2 for x in &lsqb;0, 1, 2, 3, 4, 5&rsqb;&rsqb;
+</span></code><code><span style="Color:DodgerBlue">l = &lsqb;x*x for x in range(6)&rsqb;
+</span></code><code><span style="Color:DodgerBlue">l = list("hello")
+</span></code><code><span style="Color:DodgerBlue">l = list(t2)       # From tuple
+</span></code>#
+#  Traversing
+<code><span style="Color:DodgerBlue">for cheese in cheeses:
+</span></code><code><span style="Color:DodgerBlue">    print(cheese)
+</span></code><code><span style="Color:DodgerBlue">for i in range(len(numbers)):
+</span></code><code><span style="Color:DodgerBlue">    numbers&lsqb;i&rsqb; = numbers&lsqb;i&rsqb; * 2
+</span></code>#
+#  Operations
+<code><span style="Color:DodgerBlue">a = &lsqb;1, 2, 3&rsqb;
+</span></code><code><span style="Color:DodgerBlue">b = &lsqb;4, 5, 6&rsqb;
+</span></code><code><span style="Color:DodgerBlue">c = a + b
+</span></code><code><span style="Color:DodgerBlue">d = &lsqb;0&rsqb; * 4    		# &lsqb;0, 0, 0, 0&rsqb;
+</span></code>#
+#  List slices
+<code><span style="Color:DodgerBlue">t = &lsqb;'a', 'b', 'c', 'd', 'e', 'f'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;1:3&rsqb;   		# &lsqb;'b', 'c'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;:4&rsqb;			# &lsqb;'a', 'b', 'c', 'd'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;3:&rsqb; 			# &lsqb;'d', 'e', 'f'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;:&rsqb;			# &lsqb;'a', 'b', 'c', 'd', 'e', 'f'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t&lsqb;1:3&rsqb; = &lsqb;'x', 'y'&rsqb;
+</span></code>#
+#  List methods
+<code><span style="Color:DodgerBlue">l1 = &lsqb;'a', 'b', 'c'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">l2 = &lsqb;'d', 'e'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">l1.append('ç')
+</span></code><code><span style="Color:DodgerBlue">l1.extend(t2)
+</span></code><code><span style="Color:DodgerBlue">l1.sort()
+</span></code><code><span style="Color:DodgerBlue">sum(t)
+</span></code><code><span style="Color:DodgerBlue">x = l6.count(1)     # Number of 1s
+</span></code><code><span style="Color:DodgerBlue">x = l6.index(3)     # position of 2
+</span></code><code><span style="Color:DodgerBlue">l6.insert(3, 17)    # insert 17 at position 3
+</span></code><code><span style="Color:DodgerBlue">x = l6.pop()        # return and remove the last element
+</span></code><code><span style="Color:DodgerBlue">x = l6.pop(4)       # return and remove the element at position 4
+</span></code><code><span style="Color:DodgerBlue">l6.remove(17)       # remove 17 from the list
+</span></code><code><span style="Color:DodgerBlue">l6.reverse()        # reverse the order of the elements in the list
+</span></code><code><span style="Color:DodgerBlue">l4.sort()           # sort the list
+</span></code><code><span style="Color:DodgerBlue">l6.clear            # remove all elemnts from the list
+</span></code><code><span style="Color:DodgerBlue">l4.len()	    # number of items in the list
+</span></code><code><span style="Color:DodgerBlue">l4.any()	    # returns true if any of the items in the list is true
+</span></code><code><span style="Color:DodgerBlue">l4.all()	    # returns true if all the items in the list is true
+</span></code># sort list with multiple items
+<code><span style="Color:DodgerBlue">from operator import itemgetter
+</span></code><code><span style="Color:DodgerBlue">l1 = &lsqb;(5, 3), (1, 3), (1, 2), (2, -1), (4, 9)&rsqb;   # a list of tuples
+</span></code># Sort on first item, then second item (default)
+<code><span style="Color:DodgerBlue">l2 = sorted(l1)
+</span></code># Sort on first item only
+<code><span style="Color:DodgerBlue">l3 = sorted(l1, key=itemgetter(0))
+</span></code># Sort on first item, then second item 
+<code><span style="Color:DodgerBlue">l4 = sorted(l1, key=itemgetter(0, 1))
+</span></code># Sort on second item
+<code><span style="Color:DodgerBlue">l5 = sorted(l1, key=itemgetter(1))
+</span></code># Reverse sort on second item
+<code><span style="Color:DodgerBlue">l6 = sorted(l1, key=itemgetter(1), reverse = True)
+</span></code>#
+#  Deleting from a list
+<code><span style="Color:DodgerBlue">t = &lsqb;'a', 'b', 'c', 'd', 'e', 'f'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">x = t.pop(1)
+</span></code><code><span style="Color:DodgerBlue">del t&lsqb;1&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t.remove('b')
+</span></code><code><span style="Color:DodgerBlue">del t&lsqb;1:5&rsqb;
+</span></code>#
+#  String to list
+<code><span style="Color:DodgerBlue">s = 'spam'
+</span></code><code><span style="Color:DodgerBlue">t = list(s)		# t = &lsqb;"s", "p", "a", "m"&rsqb;
+</span></code><code><span style="Color:DodgerBlue">s = 'pining for the fjords'
+</span></code><code><span style="Color:DodgerBlue">t = s.split()		# t = &lsqb;'pining', 'for', 'the', 'fjords'&rsqb;
+</span></code><code><span style="Color:DodgerBlue">s = 'spam-spam-spam'
+</span></code><code><span style="Color:DodgerBlue">delimiter = '-'
+</span></code><code><span style="Color:DodgerBlue">t = s.split(delimiter)	# t = &lsqb;'spam', 'spam', 'spam'&rsqb;
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div17')">16. Dictionaries
+</a> </H4><div id="Div17" style="margin-left:1%;"><pre >#  assignment
+<code><span style="Color:DodgerBlue">eng2sp&lsqb;'one'&rsqb; = 'uno'
+</span></code><code><span style="Color:DodgerBlue">eng2sp = {'one': 'uno', 'two': 'dos', 'three': 'tres'}
+</span></code><code><span style="Color:DodgerBlue">eng2sp = dict()		# empty
+</span></code><code><span style="Color:DodgerBlue">d1 = dict(A=1, Z=-1)
+</span></code><code><span style="Color:DodgerBlue">d2 = {"A":1, "Z":-1}
+</span></code><code><span style="Color:DodgerBlue">d3 = dict(zip(&lsqb;"A", "Z"&rsqb;, &lsqb;1, -1&rsqb;))
+</span></code><code><span style="Color:DodgerBlue">d4 = dict(&lsqb;("A", 1), ("Z", -1)&rsqb;)
+</span></code><code><span style="Color:DodgerBlue">d5 = dict({"Z": -1, "A": 1})
+</span></code>#  traversing
+<code><span style="Color:DodgerBlue">for key in h:
+</span></code><code><span style="Color:DodgerBlue">    print(key, h&lsqb;key&rsqb;)
+</span></code>#  subtracting a dictionary from other d1 - d2
+<code><span style="Color:DodgerBlue">def subtract(d1, d2):
+</span></code><code><span style="Color:DodgerBlue">    res = dict()
+</span></code><code><span style="Color:DodgerBlue">    for key in d1:
+</span></code><code><span style="Color:DodgerBlue">        if key not in d2:
+</span></code><code><span style="Color:DodgerBlue">            res&lsqb;key&rsqb; = None
+</span></code><code><span style="Color:DodgerBlue">    return res
+</span></code># set operations
+<code><span style="Color:DodgerBlue">print(d.keys())
+</span></code><code><span style="Color:DodgerBlue">print(d.values())
+</span></code><code><span style="Color:DodgerBlue">print(d.items())
+</span></code><code><span style="Color:DodgerBlue">d.pop("l")              # removes l item
+</span></code><code><span style="Color:DodgerBlue">d.update(e=7)
+</span></code><code><span style="Color:DodgerBlue">print(d)
+</span></code><code><span style="Color:DodgerBlue">print(d.get("h"))
+</span></code><code><span style="Color:DodgerBlue">print(d.get("z", 75))   # if no value then return 75
+</span></code><code><span style="Color:DodgerBlue">d.setdefault('a', 1)    # if a in dict do nothing, else put a as key and 1 as value
+</span></code><code><span style="Color:DodgerBlue">d&lsqb;'age'&rsqb; = d.get('age', 0) + 1  # if exist increase value by one, else set 1
+</span></code><code><span style="Color:DodgerBlue">del d2&lsqb;"A"&rsqb;
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div18')">17. Tuples
+</a> </H4><div id="Div18" style="margin-left:1%;"><pre >#   Like lists but immutable
+#  Assignment
+<code><span style="Color:DodgerBlue">t1 = 'b', 'c', 'd', 'e'
+</span></code><code><span style="Color:DodgerBlue">t1 = ("a",) + t1
+</span></code><code><span style="Color:DodgerBlue">t = ('a', 'b', 'c', 'd', 'e')
+</span></code><code><span style="Color:DodgerBlue">t1 = 'a',			# Beware of the comma ,
+</span></code><code><span style="Color:DodgerBlue">t = tuple()			# Empty
+</span></code><code><span style="Color:DodgerBlue">t = tuple('lupins')		# ("l", "u", "p", "i", "n", "s")
+</span></code><code><span style="Color:DodgerBlue">a, b = b, a			# swap
+</span></code>#
+#  Slicing is the same as lists
+<code><span style="Color:DodgerBlue">t&lsqb;1:3&rsqb;
+</span></code>#
+#  Functions returning tuple
+#   divmod(x, y)  x/y returns a tuple of quot and rem
+<code><span style="Color:DodgerBlue">t = divmod(11,3)
+</span></code><code><span style="Color:DodgerBlue">quot, rem = divmod(7, 3)	# alternative without tuple
+</span></code>#   A function returning a tuple
+<code><span style="Color:DodgerBlue">def min_max(t):
+</span></code><code><span style="Color:DodgerBlue">    return min(t), max(t)
+</span></code>#   A function with tuple argument
+<code><span style="Color:DodgerBlue">def printall(*args):
+</span></code><code><span style="Color:DodgerBlue">    print(args)
+</span></code># swap using tuple
+<code><span style="Color:DodgerBlue">a, b = b, a
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div19')">18. Byte Arrays
+</a> </H4><div id="Div19" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">b1 = bytearray()                    # Empty
+</span></code><code><span style="Color:DodgerBlue">b2 = bytearray(10)                  # 10 zeros
+</span></code><code><span style="Color:DodgerBlue">b3 = bytearray(b"Lina")             # From string
+</span></code><code><span style="Color:DodgerBlue">print(f"b1: {b1}")
+</span></code><code><span style="Color:DodgerBlue">print(f"b2: {b2}")
+</span></code><code><span style="Color:DodgerBlue">print(f"b3: {b3}")
+</span></code><code><span style="Color:DodgerBlue">b3 = b3.replace(b"L", b"l")
+</span></code><code><span style="Color:DodgerBlue">if b3.endswith(b"na"):
+</span></code><code><span style="Color:DodgerBlue">    print(f"b3: {b3} ends with na") 
+</span></code><code><span style="Color:DodgerBlue">b3 = b3.upper()
+</span></code><code><span style="Color:DodgerBlue">print(f"b3: {b3}")
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div20')">19. Sets
+</a> </H4><div id="Div20" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">s1 = {"a", "b", "b", "c"}
+</span></code><code><span style="Color:DodgerBlue">print(s1)
+</span></code><code><span style="Color:DodgerBlue">sp = set()                  # small primes
+</span></code><code><span style="Color:DodgerBlue">sp.add(2)
+</span></code><code><span style="Color:DodgerBlue">sp.add(3)
+</span></code><code><span style="Color:DodgerBlue">sp.add(5)
+</span></code><code><span style="Color:DodgerBlue">print(sp)
+</span></code><code><span style="Color:DodgerBlue">sp.add(1)
+</span></code><code><span style="Color:DodgerBlue">sp.remove(1)
+</span></code><code><span style="Color:DodgerBlue">if 3 in sp:
+</span></code><code><span style="Color:DodgerBlue">    print("Yes 3 is in small primes")
+</span></code><code><span style="Color:DodgerBlue">bp = set(&lsqb;5, 7, 11, 13&rsqb;)    # bigger primes
+</span></code><code><span style="Color:DodgerBlue">sun = sp | bp               # union
+</span></code><code><span style="Color:DodgerBlue">sint = sp &amp; bp              # intersection
+</span></code><code><span style="Color:DodgerBlue">print(sun)
+</span></code><code><span style="Color:DodgerBlue">print(sint)
+</span></code># frozenset - immutable, for better performance
+<code><span style="Color:DodgerBlue">fsp = frozenset(&lsqb;2, 3, 5&rsqb;)  
+</span></code><code><span style="Color:DodgerBlue">print(fsp)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div21')">20. File manipulation
+</a> </H4><div id="Div21" style="margin-left:1%;"><pre ># File manipulation in text mode
+# Read input file
+<code><span style="Color:DodgerBlue">with open('fear.txt') as fr:
+</span></code><code><span style="Color:DodgerBlue">    lines = &lsqb;line.rstrip() for line in fr&rsqb;
+</span></code># Remove empty lines
+<code><span style="Color:DodgerBlue">lines = &lsqb;line for line in lines if line != ""&rsqb;
+</span></code># Write to output file
+<code><span style="Color:DodgerBlue">with open('fear_copy.txt', 'w') as fw:
+</span></code><code><span style="Color:DodgerBlue">    fw.write('\n'.join(lines))
+</span></code># Read and write
+<code><span style="Color:DodgerBlue">with open("egypt.txt") as in_file, open("egypt2.txt", "w") as out_file:
+</span></code><code><span style="Color:DodgerBlue">    for line in in_file:
+</span></code><code><span style="Color:DodgerBlue">        out_file.write(line.upper())
+</span></code># File manipulation in binary mode
+<code><span style="Color:DodgerBlue">with open('example.bin', 'wb') as fw:
+</span></code><code><span style="Color:DodgerBlue">    fw.write(b'This is binary data...')
+</span></code><code><span style="Color:DodgerBlue">    b = bytearray(200)
+</span></code><code><span style="Color:DodgerBlue">    for i in range(200):
+</span></code><code><span style="Color:DodgerBlue">        b&lsqb;i&rsqb; = i + 20 
+</span></code><code><span style="Color:DodgerBlue">    fw.write(b)
+</span></code><code><span style="Color:DodgerBlue">with open('example.bin', 'rb') as f:
+</span></code><code><span style="Color:DodgerBlue">    print(f.read()) 
+</span></code>#  File databases
+<code><span style="Color:DodgerBlue">import dbm
+</span></code><code><span style="Color:DodgerBlue">db = dbm.open("dbengsp", "c")
+</span></code>#	'r'    read only (default)
+#	"w"    read write
+#	"c"    read/write, create if doesnot exist
+#	"n"    read/write, always create new
+<code><span style="Color:DodgerBlue">db&lsqb;"four"&rsqb; = "cuatro"
+</span></code><code><span style="Color:DodgerBlue">db&lsqb;"five"&rsqb; = "cinco"
+</span></code><code><span style="Color:DodgerBlue">db&lsqb;"six"&rsqb; = "seis"
+</span></code><code><span style="Color:DodgerBlue">db.close
+</span></code>#   Traverse a file database
+<code><span style="Color:DodgerBlue">for key in db.keys():
+</span></code><code><span style="Color:DodgerBlue">    print(key, db&lsqb;key&rsqb;)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div22')">21. Pickle
+</a> </H4><div id="Div22" style="margin-left:1%;"><pre >#  Convert any data type to string to store it
+#  Then revert it back to original type
+<code><span style="Color:DodgerBlue">import pickle
+</span></code><code><span style="Color:DodgerBlue">l1 = &lsqb;0, 1, 2, 3&rsqb;
+</span></code><code><span style="Color:DodgerBlue">t1 = (0, 1, 2, 3)
+</span></code><code><span style="Color:DodgerBlue">d1 = {"a" : 3, "b" : 5, "c" : 0}
+</span></code>#  Convert
+<code><span style="Color:DodgerBlue">sl1 = pickle.dumps(l1)
+</span></code><code><span style="Color:DodgerBlue">st1 = pickle.dumps(t1)
+</span></code><code><span style="Color:DodgerBlue">sd1 = pickle.dumps(d1)
+</span></code>#  Revert
+<code><span style="Color:DodgerBlue">l2 = pickle.loads(sl1)
+</span></code><code><span style="Color:DodgerBlue">t2 = pickle.loads(st1)
+</span></code><code><span style="Color:DodgerBlue">d2 = pickle.loads(sd1)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div23')">22. Simple Program Arguments
+</a> </H4><div id="Div23" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">from sys import argv
+</span></code><code><span style="Color:DodgerBlue">script, first, second, third = argv
+</span></code><code><span style="Color:DodgerBlue">print(f"Script {script} runs with the params {first}, {second}, {third}")
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div24')">23. Program Arguments Parsing
+</a> </H4><div id="Div24" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">import argparse
+</span></code># Start parser
+<code><span style="Color:DodgerBlue">parser = argparse.ArgumentParser(description="Demo program", epilog="Long Desription")
+</span></code># Add 2 mutually exclusive options
+#  print date or time, but not both
+<code><span style="Color:DodgerBlue">group = parser.add_mutually_exclusive_group()
+</span></code><code><span style="Color:DodgerBlue">group.add_argument("-t", "--time", help = "Print time",
+</span></code><code><span style="Color:DodgerBlue">        action="store_true")
+</span></code><code><span style="Color:DodgerBlue">group.add_argument("-d", "--day", help = "Print date",
+</span></code><code><span style="Color:DodgerBlue">        action="store_true")
+</span></code># Positional argument
+<code><span style="Color:DodgerBlue">parser.add_argument("echo", help = "Echo the string")
+</span></code># Positional argument, type int
+<code><span style="Color:DodgerBlue">parser.add_argument("square", help="display a square of a given number", type=int)
+</span></code># Optional argument, option only
+<code><span style="Color:DodgerBlue">parser.add_argument("-v", "--verbose", help="increase output verbosity",
+</span></code><code><span style="Color:DodgerBlue">        action="store_true")
+</span></code># Optional argument including an int value, with a default value
+<code><span style="Color:DodgerBlue">parser.add_argument("-n", "--number", type=int, default=1,
+</span></code><code><span style="Color:DodgerBlue">                    help="number of times to display message")
+</span></code># Get parsed arguments
+<code><span style="Color:DodgerBlue">args = parser.parse_args()
+</span></code># Use arguments
+<code><span style="Color:DodgerBlue">if args.time:
+</span></code><code><span style="Color:DodgerBlue">    print(hours)
+</span></code><code><span style="Color:DodgerBlue">elif args.day:
+</span></code><code><span style="Color:DodgerBlue">    print(days)
+</span></code><code><span style="Color:DodgerBlue">numbers = args.number
+</span></code><code><span style="Color:DodgerBlue">if args.verbose:
+</span></code><code><span style="Color:DodgerBlue">    print("Verbose is on")
+</span></code><code><span style="Color:DodgerBlue">print(args.echo)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div25')">24. OS Commands
+</a> </H4><div id="Div25" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">import os
+</span></code>#  if file exists
+<code><span style="Color:DodgerBlue">if os.path.exists(ffile):
+</span></code><code><span style="Color:DodgerBlue">    print("exists")
+</span></code>#  get current dir
+<code><span style="Color:DodgerBlue">cwd = os.getcwd()
+</span></code>#  get contents of a dir
+<code><span style="Color:DodgerBlue">files = os.listdir(cwd)
+</span></code>#  check if an item is a file or dir
+<code><span style="Color:DodgerBlue">if os.path.isdir(ffile):
+</span></code><code><span style="Color:DodgerBlue">    print("directory.")
+</span></code><code><span style="Color:DodgerBlue">elif os.path.isfile(ffile):
+</span></code><code><span style="Color:DodgerBlue">    print("file.")
+</span></code># rename a file
+<code><span style="Color:DodgerBlue">os.rename(source, dest)
+</span></code>#
+#  OS Pipe
+<code><span style="Color:DodgerBlue">print("OS Pipe")
+</span></code><code><span style="Color:DodgerBlue">cmd = "ls -al ch*"
+</span></code><code><span style="Color:DodgerBlue">fp = os.popen(cmd)
+</span></code><code><span style="Color:DodgerBlue">res = fp.read()     		# readline reads line by line
+</span></code><code><span style="Color:DodgerBlue">stat = fp.close()       	# None means no error
+</span></code><code><span style="Color:DodgerBlue">print("Exec status:", stat)
+</span></code><code><span style="Color:DodgerBlue">print("Command output:")
+</span></code><code><span style="Color:DodgerBlue">print(res)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div26')">25. Using your own library
+</a> </H4><div id="Div26" style="margin-left:1%;"><pre >#  put your library in mylib.py file
+<code><span style="Color:DodgerBlue">import mylib
+</span></code><code><span style="Color:DodgerBlue">txt = "kilim"
+</span></code><code><span style="Color:DodgerBlue">txtu = mylib.tr_upper(txt)
+</span></code><code><span style="Color:DodgerBlue">txtl = mylib.tr_lower(txtu)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div27')">26. Shortcuts
+</a> </H4><div id="Div27" style="margin-left:1%;"><pre ># shortcut factorial
+<code><span style="Color:DodgerBlue">def factorial(n):
+</span></code><code><span style="Color:DodgerBlue">    return 1 if n == 0 else n * factorial(n-1)
+</span></code># return only uppers
+<code><span style="Color:DodgerBlue">def only_upper(t):
+</span></code><code><span style="Color:DodgerBlue">    return &lsqb;s for s in t if s.isupper()&rsqb;
+</span></code># if-else
+<code><span style="Color:DodgerBlue">y = math.log(x) if x &gt; 0 else float('nan')
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div28')">27. Random
+</a> </H4><div id="Div28" style="margin-left:1%;"><pre >#  &lsqb;0,1&rsqb; float
+<code><span style="Color:DodgerBlue">x = random.random()
+</span></code>#  &lsqb;a,b&rsqb; integer
+<code><span style="Color:DodgerBlue">x = random.randint(1, b)
+</span></code>#  from a list
+<code><span style="Color:DodgerBlue">t = list("abcçdefgğhıijklmnopqrsştuxvwyz")
+</span></code><code><span style="Color:DodgerBlue">x = random.choice(t)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div29')">28. Math Module
+</a> </H4><div id="Div29" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">import math
+</span></code>#  Trig
+<code><span style="Color:DodgerBlue">math.cos(radians) 
+</span></code><code><span style="Color:DodgerBlue">math.sin(radians)
+</span></code><code><span style="Color:DodgerBlue">math.tan(radians)
+</span></code>#  Radians to degrees, vice verse
+<code><span style="Color:DodgerBlue">math.degrees(radians)
+</span></code><code><span style="Color:DodgerBlue">math.radians(degrees)
+</span></code># Constants
+<code><span style="Color:DodgerBlue">math.pi
+</span></code><code><span style="Color:DodgerBlue">math.e
+</span></code><code><span style="Color:DodgerBlue">math.inf        # infinity
+</span></code><code><span style="Color:DodgerBlue">-math.inf       # negative infinity
+</span></code># Logarithmics
+<code><span style="Color:DodgerBlue">math.log(x, base)
+</span></code><code><span style="Color:DodgerBlue">math.log(x)     # base = e
+</span></code><code><span style="Color:DodgerBlue">math.log2(x)	
+</span></code><code><span style="Color:DodgerBlue">math.log10(x)	# better than math.log(x, 10)
+</span></code># Misc
+<code><span style="Color:DodgerBlue">math.fabs(x)   # absolute value
+</span></code><code><span style="Color:DodgerBlue">math.sqrt(x)
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div30')">29. Tips
+</a> </H4><div id="Div30" style="margin-left:1%;"><pre ># Floor division and modulus
+<code><span style="Color:DodgerBlue">hours = total_minutes // 60
+</span></code><code><span style="Color:DodgerBlue">minutes = total_minutes % 60
+</span></code># Very small numbers
+<code><span style="Color:DodgerBlue">epsilon = 1e-15
+</span></code># Multi assignment
+<code><span style="Color:DodgerBlue">x = y = 2
+</span></code><code><span style="Color:DodgerBlue">a, b = 1, 2
+</span></code><code><span style="Color:DodgerBlue">addr = 'monty@python.org'
+</span></code><code><span style="Color:DodgerBlue">uname, domain = addr.split('@')
+</span></code># swap
+<code><span style="Color:DodgerBlue">a, b = b, a
+</span></code># Print without LF
+<code><span style="Color:DodgerBlue">print(x, end = " ")
+</span></code># Print formatted
+<code><span style="Color:DodgerBlue">print("%2d    %2.7f  %2.7f  %2.12f " % (i, r1, r2, r3))
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div31')">30. Turtle Module
+</a> </H4><div id="Div31" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">import turtle
+</span></code><code><span style="Color:DodgerBlue">myturtle = turtle.Turtle()
+</span></code># Move
+<code><span style="Color:DodgerBlue">myturtle.forward(len)		# Length by pixel
+</span></code><code><span style="Color:DodgerBlue">myturtle.fd(len)
+</span></code><code><span style="Color:DodgerBlue">myturtle.backward(len)
+</span></code><code><span style="Color:DodgerBlue">myturtle.back(len)
+</span></code><code><span style="Color:DodgerBlue">myturtle.bk(len)
+</span></code># Turn
+<code><span style="Color:DodgerBlue">myturtle.left(ang)		# Angle to turn
+</span></code><code><span style="Color:DodgerBlue">myturtle.lt(ang)
+</span></code><code><span style="Color:DodgerBlue">myturtle.right(ang)
+</span></code><code><span style="Color:DodgerBlue">myturtle.rt(ang)
+</span></code># Click on exit
+<code><span style="Color:DodgerBlue">turtle.exitonclick()		# Not myturtle
+</span></code># Draw and wait 
+<code><span style="Color:DodgerBlue">turtle.mainloop()
+</span></code></pre> </div> </p>
+<p> <H4><a href="javascript:myFunction('Div32')">31. Class Magic Methods
+</a> </H4><div id="Div32" style="margin-left:1%;"><pre ><code><span style="Color:DodgerBlue">__new__(cls, other) 		To get called in an object's instantiation.
+</span></code><code><span style="Color:DodgerBlue">__init__(self, other) 		To get called by the __new__ method.
+</span></code><code><span style="Color:DodgerBlue">__del__(self) 			Destructor method.
+</span></code><code><span style="Color:DodgerBlue">__pos__(self) 			To get called for unary positive e.g. +someobject.
+</span></code><code><span style="Color:DodgerBlue">__neg__(self) 			To get called for unary negative e.g. -someobject.
+</span></code><code><span style="Color:DodgerBlue">__abs__(self) 			To get called by built-in abs() function.
+</span></code><code><span style="Color:DodgerBlue">__invert__(self) 		To get called for inversion using the ~ operator.
+</span></code><code><span style="Color:DodgerBlue">__round__(self,n) 		To get called by built-in round() function.
+</span></code><code><span style="Color:DodgerBlue">__floor__(self) 		To get called by built-in math.floor() function.
+</span></code><code><span style="Color:DodgerBlue">__ceil__(self) 		To get called by built-in math.ceil() function.
+</span></code><code><span style="Color:DodgerBlue">__trunc__(self) 		To get called by built-in math.trunc() function.
+</span></code><code><span style="Color:DodgerBlue">__iadd__(self, other) 		To get called on addition with assignment e.g. a +=b.
+</span></code><code><span style="Color:DodgerBlue">__isub__(self, other) 		To get called on subtraction with assignment e.g. a -=b.
+</span></code><code><span style="Color:DodgerBlue">__imul__(self, other) 		To get called on multiplication with assignment e.g. a *=b.
+</span></code><code><span style="Color:DodgerBlue">__ifloordiv__(self, other) 	To get called on integer division with assignment e.g. a //=b.
+</span></code><code><span style="Color:DodgerBlue">__idiv__(self, other) 		To get called on division with assignment e.g. a /=b.
+</span></code><code><span style="Color:DodgerBlue">__itruediv__(self, other) 	To get called on true division with assignment
+</span></code><code><span style="Color:DodgerBlue">__imod__(self, other) 		To get called on modulo with assignment e.g. a%=b.
+</span></code><code><span style="Color:DodgerBlue">__ipow__(self, other) 		To get called on exponentswith assignment e.g. a **=b.
+</span></code><code><span style="Color:DodgerBlue">__ilshift__(self, other) 	To get called on left bitwise shift with assignment e.g. a&lt;&lt;=b.
+</span></code><code><span style="Color:DodgerBlue">__irshift__(self, other) 	To get called on right bitwise shift with assignment e.g. a &gt;&gt;=b.
+</span></code><code><span style="Color:DodgerBlue">__iand__(self, other) 		To get called on bitwise AND with assignment e.g. a&amp;=b.
+</span></code><code><span style="Color:DodgerBlue">__ior__(self, other) 		To get called on bitwise OR with assignment e.g. a|=b.
+</span></code><code><span style="Color:DodgerBlue">__ixor__(self, other) 		To get called on bitwise XOR with assignment e.g. a ^=b.
+</span></code><code><span style="Color:DodgerBlue">__int__(self) 			To get called by built-int int() method to convert a type to an int.
+</span></code><code><span style="Color:DodgerBlue">__float__(self) 		To get called by built-int float() method to convert a type to float.
+</span></code><code><span style="Color:DodgerBlue">__complex__(self) 		To get called by built-int complex() method to convert a type to complex.
+</span></code><code><span style="Color:DodgerBlue">__oct__(self) 			To get called by built-int oct() method to convert a type to octal.
+</span></code><code><span style="Color:DodgerBlue">__hex__(self) 			To get called by built-int hex() method to convert a type to hexadecimal.
+</span></code><code><span style="Color:DodgerBlue">__index__(self) 		To get called on type conversion to an int when the object is used in a slice expression.
+</span></code><code><span style="Color:DodgerBlue">__trunc__(self) 		To get called from math.trunc() method.
+</span></code><code><span style="Color:DodgerBlue">__str__(self) 			To get called by built-int str() method to return a string representation of a type.
+</span></code><code><span style="Color:DodgerBlue">__repr__(self) 		To get called by built-int repr() method to return a machine readable representation of a type.
+</span></code><code><span style="Color:DodgerBlue">__unicode__(self) 		To get called by built-int unicode() method to return an unicode string of a type.
+</span></code><code><span style="Color:DodgerBlue">__format__(self, formatstr) 	To get called by built-int string.format() method to return a new style of string.
+</span></code><code><span style="Color:DodgerBlue">__hash__(self) 		To get called by built-int hash() method to return an integer.
+</span></code><code><span style="Color:DodgerBlue">__nonzero__(self) 		To get called by built-int bool() method to return True or False.
+</span></code><code><span style="Color:DodgerBlue">__dir__(self) 			To get called by built-int dir() method to return a list of attributes of a class.
+</span></code><code><span style="Color:DodgerBlue">__sizeof__(self) 		To get called by built-int sys.getsizeof() method to return the size of an object.
+</span></code><code><span style="Color:DodgerBlue">__getattr__(self, name) 	Is called when the accessing attribute of a class that does not exist.
+</span></code><code><span style="Color:DodgerBlue">__setattr__(self, name, value) Is called when assigning a value to the attribute of a class.
+</span></code><code><span style="Color:DodgerBlue">__delattr__(self, name) 	Is called when deleting an attribute of a class.
+</span></code><code><span style="Color:DodgerBlue">__add__(self, other) 		To get called on add operation using + operator
+</span></code><code><span style="Color:DodgerBlue">__sub__(self, other) 		To get called on subtraction operation using - operator.
+</span></code><code><span style="Color:DodgerBlue">__mul__(self, other) 		To get called on multiplication operation using * operator.
+</span></code><code><span style="Color:DodgerBlue">__floordiv__(self, other) 	To get called on floor division operation using // operator.
+</span></code><code><span style="Color:DodgerBlue">__div__(self, other) 		To get called on division operation using / operator.
+</span></code><code><span style="Color:DodgerBlue">__mod__(self, other) 		To get called on modulo operation using % operator.
+</span></code><code><span style="Color:DodgerBlue">__pow__(self, other&lsqb;, modulo&rsqb;) To get called on calculating the power using ** operator.
+</span></code><code><span style="Color:DodgerBlue">__lt__(self, other) 		To get called on comparison using &lt; operator.
+</span></code><code><span style="Color:DodgerBlue">__le__(self, other) 		To get called on comparison using &lt;= operator.
+</span></code><code><span style="Color:DodgerBlue">__eq__(self, other) 		To get called on comparison using == operator.
+</span></code><code><span style="Color:DodgerBlue">__ne__(self, other) 		To get called on comparison using != operator.
+</span></code><code><span style="Color:DodgerBlue">__ge__(self, other) 		To get called on comparison using &gt;= operator.
+</span></code></pre> </div> </p>
+</pre> </div> </p>
+<br /><br /><br /><script>
+function myFunction(divid) {
+  var x = document.getElementById(divid);
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+var i;
+var str;
+
+for (i=1; i<33; i++) {
+    str = "Div" + i.toString();
+    myFunction(str);
+}
+</script></body> </html>
